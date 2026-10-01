@@ -1,0 +1,123 @@
+# One command:   docker compose up --build
+#   postgres -> migrate -> pipeline (bronze -> silver -> quality gate -> gold, then a layer report)
+#   + api (http://localhost:8000/docs) and worker stay up for API-triggered runs.
+# Optional Kafka: docker compose --profile kafka up --build   (adds kafka + outbox relay)
+x-app: &app
+  build: .
+  image: medallion:latest
+  env_file:
+    - path: .env
+      required: false
+  environment:
+    DATABASE_URL: postgresql://medallion:medallion@postgres:5432/medallion
+    # Ollama on the host machine, reachable from containers (Docker Desktop / Linux host-gateway)
+    OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://host.docker.internal:11434/v1}
+    LOG_FORMAT: ${LOG_FORMAT:-text}
+  extra_hosts:
+    - "host.docker.internal:host-gateway"
+  depends_on:
+    postgres:
+      condition: service_healthy
+  volumes:
+    - ./data:/app/data:ro                      # the source data can't be modified, even by a bug
+    - synthetic:/app/data/synthetic            # only generated synthetic files are writable
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: medallion
+      POSTGRES_PASSWORD: medallion
+      POSTGRES_DB: medallion
+    ports:
+      - "${POSTGRES_PORT:-55432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U medallion -d medallion"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+  migrate:
+    <<: *app
+    command: ["medallion", "migrate"]
+    restart: "no"
+
+  pipeline:
+    <<: *app
+    command: ["sh", "-c", "medallion run && medallion report"]
+    restart: "no"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+  api:
+    <<: *app
+    command: ["medallion", "api", "--host", "0.0.0.0", "--port", "8000"]
+    ports:
+      - "${API_PORT:-8000}:8000"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/healthz')"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  worker:
+    <<: *app
+    command: ["medallion", "worker"]
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+  cli:
+    <<: *app
+    # for `docker compose run --rm cli medallion ...`; scale 0 so `up` doesn't start it. (Not a profile:
+    # `run` on a profile-gated service silently skips .env, so API keys wouldn't reach the agents.)
+    scale: 0
+    command: ["medallion", "--help"]
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+  kafka:
+    image: apache/kafka:3.8.0
+    profiles: ["kafka"]
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server localhost:9092 >/dev/null 2>&1"]
+      interval: 5s
+      timeout: 10s
+      retries: 30
+
+  relay:
+    <<: *app
+    profiles: ["kafka"]
+    command: ["medallion", "relay"]
+    environment:
+      DATABASE_URL: postgresql://medallion:medallion@postgres:5432/medallion
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      LOG_FORMAT: ${LOG_FORMAT:-text}
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      kafka:
+        condition: service_healthy
+
+volumes:
+  pgdata:
+  synthetic:
