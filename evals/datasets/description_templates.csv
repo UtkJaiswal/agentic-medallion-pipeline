@@ -1,0 +1,93 @@
+template,example,expected_category,expected_is_safety_hazard
+a/c leaking water onto the carpet near cubicle <n>. <bldg>.,A/C leaking water onto the carpet near cubicle 380. Tower A.,hvac|plumbing,false
+ac,AC,hvac,
+alarm going off <bldg> no apparent reason,alarm going off Tower B no apparent reason,fire_safety|security_access,
+"ant infestation in <bldg>, <n> floor break room. getting worse.","Ant infestation in Cafeteria Block, 12 floor break room. Getting worse.",pest_control,false
+badge reader at <bldg> main entrance not working. staff can't get in.,Badge reader at Cafeteria Block main entrance not working. Staff can't get in.,security_access,false
+bird droppings on <bldg> entrance canopy. looks unprofessional.,Bird droppings on Tower B entrance canopy. Looks unprofessional.,janitorial|pest_control,false
+breaker keeps tripping in server room <n>. critical — affects production systems.,Breaker keeps tripping in server room 494. Critical — affects production systems.,electrical,
+bugs in office <bldg>,bugs in office Main Office,pest_control,false
+"carpet coming up at seam, trip hazard, <bldg> <n> floor.","Carpet coming up at seam, trip hazard, Data Center 1 6 floor.",general_maintenance,true
+"carpet stain in executive suite, <bldg>. need professional cleaning.","Carpet stain in executive suite, Remote Site Beta. Need professional cleaning.",janitorial,false
+"ceiling tile falling in <bldg> hallway, <n> floor. hazard.","Ceiling tile falling in Annex West hallway, 9 floor. Hazard.",general_maintenance,true
+cleaning,CLEANING,janitorial,
+climate control,Climate Control,hvac,
+cockroach sighting in <bldg> restroom. third report this month.,Cockroach sighting in Annex East restroom. Third report this month.,pest_control,false
+cold,cold,hvac,false
+conference room <n> needs deep cleaning before client visit tomorrow.,Conference room 798 needs deep cleaning before client visit tomorrow.,janitorial,false
+connectivity,Connectivity,it_network,
+door <n> won't lock. handle mechanism seems broken.,Door 672 won't lock. Handle mechanism seems broken.,security_access|general_maintenance,false
+"door handle broken on room <n>, <bldg>.","Door handle broken on room 169, Building 7.",general_maintenance|security_access,false
+"drain clogged in janitor closet, <n> floor.","Drain clogged in janitor closet, 5 floor.",plumbing,false
+elec,Elec,electrical,
+electrical,electrical,electrical,
+elevator <asset> stuck between floors <n> and <n>. no one inside (confirmed).,Elevator B-007 stuck between floors 3 and 1. No one inside (confirmed).,elevator,
+elevator buttons for floor <n> not responding. <bldg>.,Elevator buttons for floor 1 not responding. Annex East.,elevator,
+elevator making grinding noise. <bldg> main elevator.,Elevator making grinding noise. Building 3 main elevator.,elevator,
+elevator out of order again <bldg>,elevator out of order again Warehouse North,elevator,
+elevator/escalator,elevator/escalator,elevator,
+"emergency exit sign burnt out, <bldg> <n> floor east stairwell.","Emergency exit sign burnt out, Annex East 1 floor east stairwell.",fire_safety,true
+"emergency lighting test failed in stairwell a, <bldg>.","Emergency lighting test failed in stairwell A, Tower B.",fire_safety|electrical,true
+"emergency lighting test failed in stairwell b, <bldg>.","Emergency lighting test failed in stairwell B, Remote Site Beta.",fire_safety|electrical,true
+"emergency lighting test failed in stairwell c, <bldg>.","Emergency lighting test failed in stairwell C, Building 7.",fire_safety|electrical,true
+"emergency lighting test failed in stairwell north, <bldg>.","Emergency lighting test failed in stairwell North, Remote Site Alpha.",fire_safety|electrical,true
+"emergency lighting test failed in stairwell south, <bldg>.","Emergency lighting test failed in stairwell South, Data Center 1.",fire_safety|electrical,true
+faucet in <bldg> kitchen won't turn off completely. constant drip.,Faucet in HQ Floor 2 kitchen won't turn off completely. Constant drip.,plumbing,false
+"fire alarm triggered in <bldg>, <n> floor. no visible fire. possible sensor malfunction.","Fire alarm triggered in Tower A, 6 floor. No visible fire. Possible sensor malfunction.",fire_safety,
+"fire extinguisher expired in hallway near room <n>, <bldg>.","Fire extinguisher expired in hallway near room 312, Annex East.",fire_safety,true
+fire safety,fire safety,fire_safety,
+fire/safety,Fire/Safety,fire_safety,
+furniture request — need <n> additional chairs for room <n>.,Furniture request — need 3 additional chairs for room 380.,general_maintenance,false
+general maintenance,General Maintenance,general_maintenance,
+half the lights on <n> floor are out. <bldg>.,Half the lights on 8 floor are out. Tower B.,electrical,
+"heating system making loud banging noises in <bldg>, <n> floor. started yesterday.","Heating system making loud banging noises in Data Center 1, 5 floor. Started yesterday.",hvac,false
+heating/cooling,Heating/Cooling,hvac,
+hot water not working in <bldg>. multiple sinks affected.,Hot water not working in Cafeteria Block. Multiple sinks affected.,plumbing,false
+housekeeping,Housekeeping,janitorial,
+hvac,HVAC,hvac,
+hvac broken again in <bldg>. its really hot,hvac broken again in HQ Floor 3. its really hot,hvac,false
+internet extremely slow in <bldg>. speed test showing <n> mbps down.,Internet extremely slow in Tower A. Speed test showing 2 Mbps down.,it_network,false
+it support,IT Support,it_network,
+janitorial,janitorial,janitorial,
+lift,Lift,elevator,
+"lights flickering in <bldg>, <n> floor hallway. has been happening for <n> days.","Lights flickering in Building 3, 11 floor hallway. Has been happening for 3 days.",electrical,
+mice spotted in <bldg> kitchen area. droppings found in cabinets.,Mice spotted in Warehouse South kitchen area. Droppings found in cabinets.,pest_control,
+need access card programmed for new employee starting monday. <bldg> <n> floor.,Need access card programmed for new employee starting Monday. Parking Garage 1 floor.,security_access,false
+need more outlets in conf room <n>,need more outlets in conf room 871,electrical,false
+network,Network,it_network,
+network jack at desk <n> not active. new hire needs connectivity.,Network jack at desk 189 not active. New hire needs connectivity.,it_network,false
+other,Other,unknown,
+paint peeling in <bldg> lobby. looks bad for visitors.,Paint peeling in Building 3 lobby. Looks bad for visitors.,general_maintenance,false
+parking lot pothole getting larger. near spot <n>.,Parking lot pothole getting larger. Near spot 213.,general_maintenance,
+pest,Pest,pest_control,
+pipe burst,pipe burst,plumbing,
+please check the hvac — multiple complaints from staff on <n>th floor about humidity.,Please check the HVAC — multiple complaints from staff on 10th floor about humidity.,hvac,false
+plumbing,Plumbing,plumbing,
+plumbing issue,Plumbing Issue,plumbing,
+power outlet not working at desk <n>. tried multiple devices.,Power outlet not working at desk 307. Tried multiple devices.,electrical,false
+printer on <n> floor not connecting to network. model hp <asset>.,Printer on 10 floor not connecting to network. Model HP H-044.,it_network,false
+restrooms on <n> floor haven't been serviced today.,Restrooms on 4 floor haven't been serviced today.,janitorial,false
+security,SECURITY,security_access,
+security camera <asset> offline since yesterday. covers parking lot sector <n>.,Security camera H-047 offline since yesterday. Covers parking lot sector 9.,security_access,false
+security systems,Security Systems,security_access,
+smoke detector beeping <bldg>,smoke detector beeping Tower B,fire_safety,
+"sparking outlet in <bldg> — do not use, taped off","Sparking outlet in Data Center 1 — DO NOT USE, taped off",electrical,true
+spill in <bldg> lobby. slip hazard.,Spill in Building 3 lobby. Slip hazard.,janitorial,true
+sprinkler head damaged in <bldg> storage room <n>. needs replacement before it leaks.,Sprinkler head damaged in Annex West storage room 712. Needs replacement before it leaks.,fire_safety,
+tailgating incident reported at <bldg> loading dock. review camera footage.,Tailgating incident reported at Building 3 loading dock. Review camera footage.,security_access,
+temperature control issue in conference room <n>. the thermostat reads <n> degrees but it feels much colder.,Temperature control issue in conference room 713. The thermostat reads 59 degrees but it feels much colder.,hvac,false
+the ac unit on <n> floor is not working. room temp is around <n>f. please fix asap.,The AC unit on 1 floor is not working. Room temp is around 67F. Please fix ASAP.,hvac,false
+toilet in <n> floor men's restroom is overflowing. urgent.,Toilet in 10 floor men's restroom is overflowing. Urgent.,plumbing,
+trash overflowing in kitchen area <bldg>,trash overflowing in kitchen area Building 3,janitorial,false
+unit <asset> cycling on and off every few minutes. coils might be frozen.,Unit B-049 cycling on and off every few minutes. Coils might be frozen.,hvac,false
+vertical transport,Vertical Transport,elevator,
+vpn issues from <bldg> conference room. can't connect to corporate.,VPN issues from Data Center 1 conference room. Can't connect to corporate.,it_network,false
+"wasp nest forming on <bldg> exterior, near entrance.","Wasp nest forming on Building 3 exterior, near entrance.",pest_control,
+water everywhere in bathroom <bldg>,water everywhere in bathroom Parking Garage,plumbing,
+water issue,water issue,plumbing,
+"water leak detected in ceiling tiles, <bldg> room <n>. appears to be coming from above.","Water leak detected in ceiling tiles, Building 3 room 273. Appears to be coming from above.",plumbing,
+water/plumbing,Water/Plumbing,plumbing,
+wheelchair-accessible elevator in <bldg> has expired inspection certificate (noticed today).,Wheelchair-accessible elevator in Data Center 1 has expired inspection certificate (noticed today).,elevator,
+"wifi down on <n> floor, <bldg>. multiple users affected.","WiFi down on 11 floor, Warehouse South. Multiple users affected.",it_network,false
+wifi password not working,wifi password not working,it_network,false
+window cracked <bldg> <n> floor,window cracked HQ Floor 3 1 floor,general_maintenance,

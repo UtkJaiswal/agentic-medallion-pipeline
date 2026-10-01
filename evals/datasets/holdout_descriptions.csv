@@ -1,0 +1,61 @@
+template,example,expected_category,expected_is_safety_hazard
+"strong smell of gas near the boiler room on level 2","Strong smell of gas near the boiler room on level 2",plumbing|hvac|fire_safety,true
+"roof is leaking into the boardroom every time it rains","Roof is leaking into the boardroom every time it rains",plumbing|general_maintenance,
+"black mould growing behind the fridge in the staff kitchen","Black mould growing behind the fridge in the staff kitchen",janitorial|general_maintenance|pest_control,
+"rats seen near the loading bay bins","Rats seen near the loading bay bins",pest_control,false
+"someone keeps wedging the fire door open with a chair","Someone keeps wedging the fire door open with a chair",fire_safety|security_access,true
+"boardroom projector won't pick up laptops over hdmi","Boardroom projector won't pick up laptops over HDMI",it_network,false
+"chiller tripped overnight and the server hall is at 31c","Chiller tripped overnight and the server hall is at 31C",hvac,
+"backup generator failed its weekly load test","Backup generator failed its weekly load test",electrical,
+"bathroom on 4 is flooding from under the cistern","Bathroom on 4 is flooding from under the cistern",plumbing,
+"car park barrier arm stuck up, anyone can drive in","Car park barrier arm stuck up, anyone can drive in",security_access,false
+"cctv monitor in the guard hut is blank","CCTV monitor in the guard hut is blank",security_access,false
+"person trapped in lift 3 between 5 and 6, alarm pressed","Person trapped in lift 3 between 5 and 6, alarm pressed",elevator,true
+"escalator handrail moving slower than the steps","Escalator handrail moving slower than the steps",elevator,true
+"vending machine area sticky and smells of old milk","Vending machine area sticky and smells of old milk",janitorial,false
+"glass from a broken bottle all over the main stairs","Glass from a broken bottle all over the main stairs",janitorial,true
+"pigeons nesting in the atrium skylight","Pigeons nesting in the atrium skylight",pest_control,false
+"teams calls keep dropping in the east wing","Teams calls keep dropping in the east wing",it_network,false
+"cannot log in to the guest network from meeting room b","Cannot log in to the guest network from meeting room B",it_network,false
+"exposed wires hanging from the ceiling in corridor 7","Exposed wires hanging from the ceiling in corridor 7",electrical,true
+"emergency stop button on the dock leveller is cracked","Emergency stop button on the dock leveller is cracked",general_maintenance|electrical|security_access|fire_safety,true
+"radiators stone cold across the whole third floor","Radiators stone cold across the whole third floor",hvac,false
+"office is freezing, aircon blasting all day","Office is freezing, aircon blasting all day",hvac,false
+"blinds in reception are broken and won't close","Blinds in reception are broken and won't close",general_maintenance,false
+"loose paving slab outside the main entrance","Loose paving slab outside the main entrance",general_maintenance,true
+"fire panel showing a fault on zone 12","Fire panel showing a fault on zone 12",fire_safety,true
+"key fob not opening the bike store","Key fob not opening the bike store",security_access,false
+"urinal running continuously in the gents on 2","Urinal running continuously in the gents on 2",plumbing,false
+"desk lamp sockets dead in the quiet zone","Desk lamp sockets dead in the quiet zone",electrical,false
+"wasps getting in through the canteen windows","Wasps getting in through the canteen windows",pest_control,
+"need the meeting room deep cleaned after the client lunch","Need the meeting room deep cleaned after the client lunch",janitorial,false
+"hand dryer in the ground floor ladies sparks when switched on","Hand dryer in the ground floor ladies sparks when switched on",electrical,true
+"server room humidity alarm at 80 percent","Server room humidity alarm at 80 percent",hvac,
+"fridge in the 5th floor kitchen is warm and the milk has gone off","Fridge in the 5th floor kitchen is warm and the milk has gone off",general_maintenance|electrical|janitorial,false
+"lift 2 doors closing on people's bags","Lift 2 doors closing on people's bags",elevator,true
+"visitor badge printer at reception jammed","Visitor badge printer at reception jammed",security_access|it_network,false
+"sewage smell coming up from the basement floor drain","Sewage smell coming up from the basement floor drain",plumbing,
+"silverfish in the archive room boxes","Silverfish in the archive room boxes",pest_control,false
+"bins in the car park have not been emptied for a week","Bins in the car park have not been emptied for a week",janitorial,false
+"meeting room screen keeps saying no signal","Meeting room screen keeps saying no signal",it_network,false
+"automatic entrance doors stuck open overnight","Automatic entrance doors stuck open overnight",security_access|general_maintenance,
+"sprinkler system pressure gauge reading zero","Sprinkler system pressure gauge reading zero",fire_safety,true
+"smoke coming from the kitchen extractor fan","Smoke coming from the kitchen extractor fan",fire_safety|hvac|electrical,true
+"cold water tap in the gym showers only runs hot","Cold water tap in the gym showers only runs hot",plumbing,
+"ceiling fan in reception wobbling badly","Ceiling fan in reception wobbling badly",general_maintenance|electrical|hvac,true
+"wi-fi access point blinking red on level 3","Wi-Fi access point blinking red on level 3",it_network,false
+"graffiti on the side wall of the bike shed","Graffiti on the side wall of the bike shed",janitorial|general_maintenance,false
+"cctv camera in the stairwell pointing at the ceiling","CCTV camera in the stairwell pointing at the ceiling",security_access,false
+"slugs all over the ground floor corridor after the rain","Slugs all over the ground floor corridor after the rain",pest_control|janitorial,
+"stairwell lights on a timer switch off too quickly","Stairwell lights on a timer switch off too quickly",electrical,
+"boiler showing fault code e119, no heating","Boiler showing fault code E119, no heating",hvac|plumbing,false
+"carbon monoxide detector chirping in the plant room","Carbon monoxide detector chirping in the plant room",fire_safety,true
+"leaking radiator valve dripping onto the floorboards","Leaking radiator valve dripping onto the floorboards",plumbing|hvac,
+"conference phone in the boardroom has no dial tone","Conference phone in the boardroom has no dial tone",it_network,false
+"vomit in the 2nd floor lift lobby","Vomit in the 2nd floor lift lobby",janitorial,
+"window blind cord hanging loose in the creche","Window blind cord hanging loose in the creche",general_maintenance,true
+"intruder alarm panel says tamper fault","Intruder alarm panel says tamper fault",security_access,false
+"evacuation chair missing from the stair landing","Evacuation chair missing from the stair landing",fire_safety,true
+"gutters overflowing onto the entrance steps","Gutters overflowing onto the entrance steps",general_maintenance|plumbing,
+"mice droppings behind the vending machines","Mice droppings behind the vending machines",pest_control,
+"ups in the comms cupboard beeping on battery","UPS in the comms cupboard beeping on battery",electrical|it_network,

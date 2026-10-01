@@ -1,0 +1,99 @@
+label,expected_kind,expected_category
+a/c,category_label,hvac
+ac,category_label,hvac
+access control,category_label,security_access
+air conditioning,category_label,hvac
+badge/access,category_label,security_access
+bird droppings on parking garage entrance canopy. looks unpr,description_text,janitorial|pest_control
+breaker keeps tripping in server room 696. critical — affect,description_text,electrical
+bugs in office remote site beta,description_text,pest_control
+cleaning,category_label,janitorial
+climate control,category_label,hvac
+cold,category_label|description_text,hvac
+connectivity,category_label,it_network
+elec,category_label,electrical
+electrical,category_label,electrical
+electrical systems,category_label,electrical
+elevator,category_label,elevator
+elevator a-001 stuck between floors 4 and 12. no one inside,description_text,elevator
+elevator buttons for floor 1 not responding. hq floor 1.,description_text,elevator
+elevator e-048 stuck between floors 2 and 9. no one inside (,description_text,elevator
+elevator making grinding noise. annex east main elevator.,description_text,elevator
+elevator making grinding noise. annex west main elevator.,description_text,elevator
+elevator out of order again parking garage,description_text,elevator
+elevator/escalator,category_label,elevator
+"emergency exit sign burnt out, hq floor 2 6 floor east stair",description_text,fire_safety
+"emergency exit sign burnt out, main office 8 floor east stai",description_text,fire_safety
+exterminator,category_label,pest_control
+faucet in remote site alpha kitchen won't turn off completel,description_text,plumbing
+fire alarm,category_label,fire_safety
+"fire extinguisher expired in hallway near room 470, tower b.",description_text,fire_safety
+fire safety,category_label,fire_safety
+fire/safety,category_label,fire_safety
+furniture request — need 3 additional chairs for room 778.,description_text,general_maintenance
+general,generic_label,unknown
+general maintenance,category_label,general_maintenance
+heating cooling,category_label,hvac
+heating/cooling,category_label,hvac
+hot water not working in annex east. multiple sinks affected,description_text,plumbing
+hot water not working in building 7. multiple sinks affected,description_text,plumbing
+hot water not working in cafeteria block. multiple sinks aff,description_text,plumbing
+hot water not working in tower b. multiple sinks affected.,description_text,plumbing
+housekeeping,category_label,janitorial
+hvac,category_label,hvac
+hvac system,category_label,hvac
+it,category_label,it_network
+it support,category_label,it_network
+it/network,category_label,it_network
+janitorial,category_label,janitorial
+lift,category_label,elevator
+maintenance,category_label,general_maintenance
+misc,generic_label,unknown
+need access card programmed for new employee starting monday,description_text,security_access
+need more outlets in conf room 387,description_text,electrical
+need more outlets in conf room 861,description_text,electrical
+network,category_label,it_network
+network jack at desk 301 not active. new hire needs connecti,description_text,it_network
+other,generic_label,unknown
+pest,category_label,pest_control
+pest control,category_label,pest_control
+pipe burst,category_label|description_text,plumbing
+plumbing,category_label,plumbing
+plumbing issue,category_label,plumbing
+power,category_label,electrical
+power issue,category_label,electrical
+restrooms on 2 floor haven't been serviced today.,description_text,janitorial
+restrooms on 7 floor haven't been serviced today.,description_text,janitorial
+security,category_label,security_access
+security camera a-040 offline since yesterday. covers parkin,description_text,security_access
+security camera e-049 offline since yesterday. covers parkin,description_text,security_access
+security systems,category_label,security_access
+smoke detector beeping tower a,description_text,fire_safety
+sprinkler,category_label,fire_safety
+temperature control issue in conference room 379. the thermo,description_text,hvac
+temperature control issue in conference room 618. the thermo,description_text,hvac
+the ac unit on 6 floor is not working. room temp is around 5,description_text,hvac
+toilet in 7 floor men's restroom is overflowing. urgent.,description_text,plumbing
+trash overflowing in kitchen area annex west,description_text,janitorial
+trash overflowing in kitchen area cafeteria block,description_text,janitorial
+trash overflowing in kitchen area hq floor 1,description_text,janitorial
+unit c-050 cycling on and off every few minutes. coils might,description_text,hvac
+unit h-008 cycling on and off every few minutes. coils might,description_text,hvac
+vertical transport,category_label,elevator
+vpn issues from hq floor 1 conference room. can't connect to,description_text,it_network
+vpn issues from remote site alpha conference room. can't con,description_text,it_network
+vpn issues from warehouse north conference room. can't conne,description_text,it_network
+"wasp nest forming on hq floor 3 exterior, near entrance.",description_text,pest_control
+water issue,category_label,plumbing
+"water leak detected in ceiling tiles, building 7 room 805. a",description_text,plumbing
+water/plumbing,category_label,plumbing
+wheelchair-accessible elevator in annex east has expired ins,description_text,elevator
+wifi,category_label,it_network
+"wifi down on 4 floor, building 7. multiple users affected.",description_text,it_network
+window cracked hq floor 2 6 floor,description_text,general_maintenance
+unknown,junk,unknown
+null,junk,unknown
+test,junk,unknown
+asdf,junk,unknown
+delete me,junk,unknown
+???,junk,unknown
