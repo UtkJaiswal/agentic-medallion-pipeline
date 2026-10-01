@@ -1,0 +1,11 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+evals/results/*.json
+!evals/results/reference/
+!evals/results/reference/*.json
+.DS_Store
+data/synthetic/
