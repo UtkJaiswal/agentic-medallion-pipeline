@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="520" viewBox="0 0 1240 520"><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker></defs>
+<rect width="1240" height="520" fill="#FFFFFF"/>
+<text x="24" y="34" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#0F172A" text-anchor="start">LLM gateway: the path of every model call</text>
+<text x="24" y="56" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#334155" text-anchor="start">One entry point (LLMRouter). Each step can stop a bad call early; the pipeline never fails because a model did.</text>
+<rect x="24" y="84" width="270" height="132" rx="10" fill="#FDECEC" stroke="#C24141" stroke-width="1.6"/>
+<text x="159.0" y="106" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#7F1D1D" text-anchor="middle">1. Input guardrails</text>
+<text x="159.0" y="126" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">unrendered placeholders?</text>
+<text x="159.0" y="143" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">fits context window?</text>
+<text x="159.0" y="160" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">PII redaction (hosted)</text>
+<text x="159.0" y="177" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">injection screening</text>
+<rect x="328" y="84" width="270" height="132" rx="10" fill="#F2EDFF" stroke="#7A5AC8" stroke-width="1.6"/>
+<text x="463.0" y="106" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#3B2370" text-anchor="middle">2. Cache</text>
+<text x="463.0" y="126" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">key = model + prompt</text>
+<text x="463.0" y="143" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">version + memory + prompt</text>
+<text x="463.0" y="160" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">only validated answers</text>
+<text x="463.0" y="177" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">re-runs cost $0</text>
+<path d="M 294 150 L 328 150" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="632" y="84" width="270" height="132" rx="10" fill="#E8F6EE" stroke="#2E8B57" stroke-width="1.6"/>
+<text x="767.0" y="106" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#14532D" text-anchor="middle">3. Provider chain</text>
+<text x="767.0" y="126" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">in LLM_PROVIDERS order</text>
+<text x="767.0" y="143" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">e.g. openrouter → ollama</text>
+<text x="767.0" y="160" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">failure → next provider</text>
+<text x="767.0" y="177" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle"></text>
+<path d="M 598 150 L 632 150" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="936" y="84" width="270" height="132" rx="10" fill="#E7F0FF" stroke="#3B6FD8" stroke-width="1.6"/>
+<text x="1071.0" y="106" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#1E3A8A" text-anchor="middle">4. Validate output</text>
+<text x="1071.0" y="126" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">Pydantic schema</text>
+<text x="1071.0" y="143" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">enums = taxonomy keys</text>
+<text x="1071.0" y="160" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">1 repair round-trip</text>
+<text x="1071.0" y="177" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">invalid → next</text>
+<path d="M 902 150 L 936 150" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="24" y="240" width="1192" height="150" rx="14" fill="#E8F6EE" fill-opacity="0.45" stroke="#2E8B57" stroke-dasharray="6 4"/>
+<text x="38" y="262" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#14532D" text-anchor="start">INSIDE EACH PROVIDER (DECORATORS, OUTERMOST FIRST)</text>
+<rect x="48" y="272" width="208" height="100" rx="10" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.6"/>
+<text x="152.0" y="294" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0F172A" text-anchor="middle">Circuit breaker</text>
+<text x="152.0" y="314" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">5 transient failures</text>
+<text x="152.0" y="331" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">→ fail fast 30 s</text>
+<rect x="278" y="272" width="208" height="100" rx="10" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.6"/>
+<text x="382.0" y="294" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0F172A" text-anchor="middle">Retry</text>
+<text x="382.0" y="314" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">exponential backoff</text>
+<text x="382.0" y="331" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">full jitter · Retry-After</text>
+<path d="M 256 322 L 278 322" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="508" y="272" width="208" height="100" rx="10" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.6"/>
+<text x="612.0" y="294" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0F172A" text-anchor="middle">Rate limit</text>
+<text x="612.0" y="314" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">token bucket per</text>
+<text x="612.0" y="331" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">provider (RPM)</text>
+<path d="M 486 322 L 508 322" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="738" y="272" width="208" height="100" rx="10" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.6"/>
+<text x="842.0" y="294" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0F172A" text-anchor="middle">Metered</text>
+<text x="842.0" y="314" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">token + USD budget</text>
+<text x="842.0" y="331" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">every attempt → ops.llm_calls</text>
+<path d="M 716 322 L 738 322" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="968" y="272" width="208" height="100" rx="10" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.6"/>
+<text x="1072.0" y="294" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0F172A" text-anchor="middle">Adapter</text>
+<text x="1072.0" y="314" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">SDK call + timeout</text>
+<text x="1072.0" y="331" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">errors → transient | permanent</text>
+<path d="M 946 322 L 968 322" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<path d="M 766 216 L 766 240" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="24" y="412" width="580" height="90" rx="10" fill="#FFF1E6" stroke="#E07B24" stroke-width="1.6"/>
+<text x="314.0" y="434" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#7C3A06" text-anchor="middle">All providers failed or budget spent</text>
+<text x="314.0" y="454" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">NoProviderAvailable → the agent uses its</text>
+<text x="314.0" y="471" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">deterministic strategy (keyword rules) and flags it</text>
+<rect x="636" y="412" width="580" height="90" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.6"/>
+<text x="926.0" y="434" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#475569" text-anchor="middle">Providers (all from .env)</text>
+<text x="926.0" y="454" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">Anthropic · OpenAI · Gemini · OpenRouter (any model, incl. Jev Router)</text>
+<text x="926.0" y="471" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">Ollama · vLLM (self-hosted)  ·  native Jev (typed choices, TypeSafe key)</text>
+</svg>

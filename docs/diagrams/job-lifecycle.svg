@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="420" viewBox="0 0 1240 420"><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker></defs>
+<rect width="1240" height="420" fill="#FFFFFF"/>
+<text x="24" y="34" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#0F172A" text-anchor="start">API run lifecycle: idempotent submit, background execution, polling</text>
+<rect x="24" y="84" width="250" height="112" rx="10" fill="#F1F5F9" stroke="#64748B" stroke-width="1.6"/>
+<text x="149.0" y="106" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0F172A" text-anchor="middle">Client  (medallion submit)</text>
+<text x="149.0" y="126" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">POST + Idempotency-Key</text>
+<text x="149.0" y="143" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">+ traceparent / X-Trace-Id</text>
+<text x="149.0" y="160" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">retries 429/5xx with backoff</text>
+<text x="149.0" y="177" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">then polls with jitter</text>
+<path d="M 274 120 L 330 120" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="292.0" y="112.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#475569" text-anchor="start" font-style="italic">POST</text>
+<rect x="330" y="70" width="300" height="140" rx="10" fill="#F1F5F9" stroke="#64748B" stroke-width="1.6"/>
+<text x="480.0" y="92" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0F172A" text-anchor="middle">API</text>
+<text x="480.0" y="112" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">new key → INSERT run &#x27;queued&#x27; → 202</text>
+<text x="480.0" y="129" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">same key + same body → 200 replay</text>
+<text x="480.0" y="146" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">same key + other body → 422</text>
+<text x="480.0" y="163" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">rate limit → 429 + Retry-After</text>
+<text x="480.0" y="180" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">X-Trace-Id echoed</text>
+<path d="M 630 140 L 690 140" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="690" y="84" width="250" height="112" rx="10" fill="#F2EDFF" stroke="#7A5AC8" stroke-width="1.6"/>
+<text x="815.0" y="106" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#3B2370" text-anchor="middle">ops.pipeline_runs</text>
+<text x="815.0" y="126" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">the job queue</text>
+<text x="815.0" y="143" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">status · attempts</text>
+<text x="815.0" y="160" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">not_before · lease</text>
+<path d="M 940 140 L 990 140" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="951.0" y="132.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#475569" text-anchor="start" font-style="italic">claim</text>
+<rect x="990" y="70" width="226" height="140" rx="10" fill="#F1F5F9" stroke="#64748B" stroke-width="1.6"/>
+<text x="1103.0" y="92" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0F172A" text-anchor="middle">Worker(s)</text>
+<text x="1103.0" y="112" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">FOR UPDATE SKIP LOCKED</text>
+<text x="1103.0" y="129" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">lease + heartbeat</text>
+<text x="1103.0" y="146" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">runs PipelineRunner</text>
+<text x="1103.0" y="163" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">idle poll with jitter</text>
+<rect x="330" y="280" width="260" height="100" rx="10" fill="#E8F6EE" stroke="#2E8B57" stroke-width="1.6"/>
+<text x="460.0" y="302" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#14532D" text-anchor="middle">succeeded</text>
+<text x="460.0" y="322" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">summary + stage metrics</text>
+<text x="460.0" y="339" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">events → outbox</text>
+<rect x="620" y="280" width="290" height="100" rx="10" fill="#FFF1E6" stroke="#E07B24" stroke-width="1.6"/>
+<text x="765.0" y="302" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#7C3A06" text-anchor="middle">transient failure</text>
+<text x="765.0" y="322" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">re-queued with exponential</text>
+<text x="765.0" y="339" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">backoff + jitter (not_before)</text>
+<text x="765.0" y="356" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">up to max_attempts</text>
+<rect x="940" y="280" width="276" height="100" rx="10" fill="#FDECEC" stroke="#C24141" stroke-width="1.6"/>
+<text x="1078.0" y="302" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#7F1D1D" text-anchor="middle">crashed worker</text>
+<text x="1078.0" y="322" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">lease expires</text>
+<text x="1078.0" y="339" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">another worker re-claims</text>
+<text x="1078.0" y="356" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">(pipeline is idempotent)</text>
+<path d="M 1103 210 L 1103 280" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<path d="M 1040 210 L 765 280" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<path d="M 1000 210 L 520 280" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<path d="M 149 196 L 149 232 L 480 232 L 480 210" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="160" y="250" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#475569" text-anchor="start" font-style="italic">poll GET /v1/pipeline-runs/{id}  (Retry-After hint while running)</text>
+</svg>

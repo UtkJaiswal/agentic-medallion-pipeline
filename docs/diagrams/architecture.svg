@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="760" viewBox="0 0 1240 760"><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker></defs>
+<rect width="1240" height="760" fill="#FFFFFF"/>
+<text x="24" y="34" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#0F172A" text-anchor="start">System architecture</text>
+<text x="24" y="56" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#334155" text-anchor="start">Thin entry points drive one orchestrator; agents only ever propose, people (or a measured policy) approve.</text>
+<rect x="24" y="76" width="1192" height="96" rx="14" fill="#F1F5F9" fill-opacity="0.45" stroke="#64748B" stroke-dasharray="6 4"/>
+<text x="38" y="98" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#0F172A" text-anchor="start">ENTRY POINTS (THIN ADAPTERS)</text>
+<rect x="48" y="104" width="330" height="56" rx="10" fill="#F1F5F9" stroke="#64748B" stroke-width="1.6"/>
+<text x="213.0" y="126" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0F172A" text-anchor="middle">CLI  ·  medallion run | review | eval</text>
+<rect x="398" y="104" width="380" height="56" rx="10" fill="#F1F5F9" stroke="#64748B" stroke-width="1.6"/>
+<text x="588.0" y="126" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0F172A" text-anchor="middle">HTTP API  ·  POST /v1/pipeline-runs</text>
+<text x="588.0" y="146" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">Idempotency-Key → 202 + poll GET</text>
+<rect x="798" y="104" width="394" height="56" rx="10" fill="#F1F5F9" stroke="#64748B" stroke-width="1.6"/>
+<text x="995.0" y="126" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0F172A" text-anchor="middle">Background worker</text>
+<text x="995.0" y="146" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">SKIP LOCKED claim · lease · retry + jitter</text>
+<path d="M 620 172 L 620 196" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="430" y="196" width="380" height="44" rx="10" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.6"/>
+<text x="620.0" y="218" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0F172A" text-anchor="middle">PipelineRunner  ·  advisory lock · trace_id · run_id</text>
+<rect x="24" y="258" width="1192" height="176" rx="14" fill="#EEF1F5" fill-opacity="0.45" stroke="#7C8796" stroke-dasharray="6 4"/>
+<text x="38" y="280" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#1F2937" text-anchor="start">MEDALLION PIPELINE (POSTGRESQL SCHEMAS)</text>
+<rect x="48" y="292" width="230" height="124" rx="10" fill="#FBEBDD" stroke="#B8733A" stroke-width="1.6"/>
+<text x="163.0" y="314" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#6B3A12" text-anchor="middle">BRONZE</text>
+<text x="163.0" y="334" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">raw_tickets.csv, as-is (jsonb)</text>
+<text x="163.0" y="351" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">file sha256 · row hash</text>
+<text x="163.0" y="368" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">schema drift · PII tags</text>
+<rect x="322" y="292" width="290" height="124" rx="10" fill="#EEF1F5" stroke="#7C8796" stroke-width="1.6"/>
+<text x="467.0" y="314" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#1F2937" text-anchor="middle">SILVER</text>
+<text x="467.0" y="334" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">typed · cleaned · deduplicated</text>
+<text x="467.0" y="351" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">tickets | quarantine | duplicates</text>
+<text x="467.0" y="368" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">reconciliation asserted</text>
+<rect x="656" y="292" width="220" height="124" rx="10" fill="#FDECEC" stroke="#C24141" stroke-width="1.6"/>
+<text x="766.0" y="314" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#7F1D1D" text-anchor="middle">QUALITY GATE</text>
+<text x="766.0" y="334" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">12 approved checks</text>
+<text x="766.0" y="351" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">critical failure keeps</text>
+<text x="766.0" y="368" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">previous gold</text>
+<rect x="920" y="292" width="272" height="124" rx="10" fill="#FFF6D6" stroke="#C9A227" stroke-width="1.6"/>
+<text x="1056.0" y="314" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#6B5200" text-anchor="middle">GOLD</text>
+<text x="1056.0" y="334" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">star schema · 3 marts</text>
+<text x="1056.0" y="351" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">hazard view · knowledge graph</text>
+<text x="1056.0" y="368" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">atomic rebuild</text>
+<path d="M 278 354 L 322 354" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<path d="M 612 354 L 656 354" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<path d="M 876 354 L 920 354" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<path d="M 620 240 L 620 258" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="24" y="452" width="760" height="150" rx="14" fill="#E7F0FF" fill-opacity="0.45" stroke="#3B6FD8" stroke-dasharray="6 4"/>
+<text x="38" y="474" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#1E3A8A" text-anchor="start">AI AGENTS (PROPOSE ONLY)</text>
+<rect x="48" y="484" width="230" height="102" rx="10" fill="#E7F0FF" stroke="#3B6FD8" stroke-width="1.6"/>
+<text x="163.0" y="506" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#1E3A8A" text-anchor="middle">Classification</text>
+<text x="163.0" y="526" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">labels &amp; templates →</text>
+<text x="163.0" y="543" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">category, severity, hazard</text>
+<text x="163.0" y="560" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">memory-aware</text>
+<rect x="298" y="484" width="230" height="102" rx="10" fill="#E7F0FF" stroke="#3B6FD8" stroke-width="1.6"/>
+<text x="413.0" y="506" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#1E3A8A" text-anchor="middle">Data Quality</text>
+<text x="413.0" y="526" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">profile → rules + SQL</text>
+<text x="413.0" y="543" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">executed on real data</text>
+<text x="413.0" y="560" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">repair loop</text>
+<rect x="548" y="484" width="214" height="102" rx="10" fill="#E7F0FF" stroke="#3B6FD8" stroke-width="1.6"/>
+<text x="655.0" y="506" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#1E3A8A" text-anchor="middle">Gold Design</text>
+<text x="655.0" y="526" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">schema + brief → marts</text>
+<text x="655.0" y="543" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">EXPLAIN + read-only run</text>
+<text x="655.0" y="560" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">repair loop</text>
+<rect x="808" y="452" width="408" height="150" rx="10" fill="#FFF1E6" stroke="#E07B24" stroke-width="1.6"/>
+<text x="1012.0" y="474" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#7C3A06" text-anchor="middle">Review gate  (ops.agent_proposals)</text>
+<text x="1012.0" y="494" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">trust = human 0.6 · judge 0.3 · agent 0.1</text>
+<text x="1012.0" y="511" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">auto-approve only above threshold</text>
+<text x="1012.0" y="528" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">everything else → human review queue</text>
+<text x="1012.0" y="545" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">approved → ref.* (taxonomy, maps, checks)</text>
+<path d="M 762 560 L 808 560" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="785" y="552" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#475569" text-anchor="middle" font-style="italic">proposals</text>
+<path d="M 1012 452 L 1012 434 L 467 434 L 467 416" fill="none" stroke="#E07B24" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="739.5" y="428.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#475569" text-anchor="middle" font-style="italic">approved reference data feeds silver</text>
+<path d="M 163 416 L 163 484" fill="none" stroke="#475569" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+<text x="171.0" y="450.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#475569" text-anchor="start" font-style="italic">profile</text>
+<rect x="24" y="620" width="760" height="124" rx="14" fill="#E8F6EE" fill-opacity="0.45" stroke="#2E8B57" stroke-dasharray="6 4"/>
+<text x="38" y="642" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#14532D" text-anchor="start">LLM GATEWAY (ONE ENTRY POINT FOR EVERY MODEL CALL)</text>
+<rect x="48" y="652" width="712" height="78" rx="10" fill="#E8F6EE" stroke="#2E8B57" stroke-width="1.6"/>
+<text x="404.0" y="674" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#14532D" text-anchor="middle">LLMRouter</text>
+<text x="404.0" y="694" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">guardrails (pre-flight, PII redaction) → cache → provider chain → schema validation + repair</text>
+<text x="404.0" y="711" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">Anthropic · OpenAI · Gemini · OpenRouter (incl. Jev Router) · Ollama · vLLM · native Jev  —  or none</text>
+<path d="M 405 602 L 405 652" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="415" y="615" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#475569" text-anchor="start" font-style="italic">every model call</text>
+<rect x="808" y="620" width="408" height="124" rx="10" fill="#F2EDFF" stroke="#7A5AC8" stroke-width="1.6"/>
+<text x="1012.0" y="642" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#3B2370" text-anchor="middle">ops schema</text>
+<text x="1012.0" y="662" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">runs = job queue · stage metrics · lineage</text>
+<text x="1012.0" y="679" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">LLM calls &amp; cost · cache</text>
+<text x="1012.0" y="696" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">proposals · DQ results · outbox</text>
+<text x="1012.0" y="713" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle">→ Kafka relay (optional)</text>
+</svg>
