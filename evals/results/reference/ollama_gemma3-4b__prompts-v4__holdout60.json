@@ -1,0 +1,517 @@
+{
+  "strategy": "ollama/gemma3:4b",
+  "started_at": "2026-10-01T23:58:30+00:00",
+  "tasks": [
+    {
+      "task": "category_labels",
+      "items": 98,
+      "accuracy": 0.949,
+      "secondary_name": "label_kind",
+      "secondary_accuracy": 0.7347,
+      "wall_time_s": 108.98,
+      "errors": [
+        {
+          "label": "breaker keeps tripping in server room 696. critical \u2014 affect",
+          "expected": "description_text/electrical",
+          "got": "category_label/electrical"
+        },
+        {
+          "label": "bugs in office remote site beta",
+          "expected": "description_text/pest_control",
+          "got": "category_label/pest_control"
+        },
+        {
+          "label": "elevator buttons for floor 1 not responding. hq floor 1.",
+          "expected": "description_text/elevator",
+          "got": "category_label/elevator"
+        },
+        {
+          "label": "elevator making grinding noise. annex east main elevator.",
+          "expected": "description_text/elevator",
+          "got": "category_label/elevator"
+        },
+        {
+          "label": "elevator making grinding noise. annex west main elevator.",
+          "expected": "description_text/elevator",
+          "got": "category_label/elevator"
+        },
+        {
+          "label": "elevator out of order again parking garage",
+          "expected": "description_text/elevator",
+          "got": "category_label/elevator"
+        },
+        {
+          "label": "emergency exit sign burnt out, hq floor 2 6 floor east stair",
+          "expected": "description_text/fire_safety",
+          "got": "category_label/fire_safety"
+        },
+        {
+          "label": "emergency exit sign burnt out, main office 8 floor east stai",
+          "expected": "description_text/fire_safety",
+          "got": "category_label/fire_safety"
+        },
+        {
+          "label": "fire extinguisher expired in hallway near room 470, tower b.",
+          "expected": "description_text/fire_safety",
+          "got": "category_label/fire_safety"
+        },
+        {
+          "label": "furniture request \u2014 need 3 additional chairs for room 778.",
+          "expected": "description_text/general_maintenance",
+          "got": "generic_label/unknown"
+        },
+        {
+          "label": "general maintenance",
+          "expected": "category_label/general_maintenance",
+          "got": "generic_label/unknown"
+        },
+        {
+          "label": "need access card programmed for new employee starting monday",
+          "expected": "description_text/security_access",
+          "got": "category_label/security_access"
+        },
+        {
+          "label": "need more outlets in conf room 387",
+          "expected": "description_text/electrical",
+          "got": "category_label/electrical"
+        },
+        {
+          "label": "need more outlets in conf room 861",
+          "expected": "description_text/electrical",
+          "got": "category_label/electrical"
+        },
+        {
+          "label": "network jack at desk 301 not active. new hire needs connecti",
+          "expected": "description_text/it_network",
+          "got": "category_label/it_network"
+        },
+        {
+          "label": "temperature control issue in conference room 379. the thermo",
+          "expected": "description_text/hvac",
+          "got": "description_text/electrical"
+        },
+        {
+          "label": "temperature control issue in conference room 618. the thermo",
+          "expected": "description_text/hvac",
+          "got": "description_text/electrical"
+        },
+        {
+          "label": "the ac unit on 6 floor is not working. room temp is around 5",
+          "expected": "description_text/hvac",
+          "got": "category_label/hvac"
+        },
+        {
+          "label": "toilet in 7 floor men's restroom is overflowing. urgent.",
+          "expected": "description_text/plumbing",
+          "got": "category_label/plumbing"
+        },
+        {
+          "label": "trash overflowing in kitchen area annex west",
+          "expected": "description_text/janitorial",
+          "got": "category_label/janitorial"
+        },
+        {
+          "label": "trash overflowing in kitchen area cafeteria block",
+          "expected": "description_text/janitorial",
+          "got": "category_label/janitorial"
+        },
+        {
+          "label": "trash overflowing in kitchen area hq floor 1",
+          "expected": "description_text/janitorial",
+          "got": "category_label/janitorial"
+        },
+        {
+          "label": "unit c-050 cycling on and off every few minutes. coils might",
+          "expected": "description_text/hvac",
+          "got": "category_label/electrical"
+        },
+        {
+          "label": "unit h-008 cycling on and off every few minutes. coils might",
+          "expected": "description_text/hvac",
+          "got": "category_label/hvac"
+        },
+        {
+          "label": "water issue",
+          "expected": "category_label/plumbing",
+          "got": "description_text/plumbing"
+        },
+        {
+          "label": "water/plumbing",
+          "expected": "category_label/plumbing",
+          "got": "description_text/plumbing"
+        },
+        {
+          "label": "wifi",
+          "expected": "category_label/it_network",
+          "got": "description_text/it_network"
+        },
+        {
+          "label": "wifi down on 4 floor, building 7. multiple users affected.",
+          "expected": "description_text/it_network",
+          "got": "category_label/it_network"
+        }
+      ],
+      "macro_f1": 0.9354,
+      "per_category": {
+        "electrical": {
+          "precision": 0.727,
+          "recall": 1.0,
+          "f1": 0.842,
+          "support": 8
+        },
+        "elevator": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 11
+        },
+        "fire_safety": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 8
+        },
+        "general_maintenance": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.667,
+          "support": 4
+        },
+        "hvac": {
+          "precision": 1.0,
+          "recall": 0.786,
+          "f1": 0.88,
+          "support": 14
+        },
+        "it_network": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 11
+        },
+        "janitorial": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 9
+        },
+        "pest_control": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "plumbing": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 12
+        },
+        "security_access": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 7
+        },
+        "unknown": {
+          "precision": 0.818,
+          "recall": 1.0,
+          "f1": 0.9,
+          "support": 9
+        }
+      }
+    },
+    {
+      "task": "description_templates",
+      "items": 92,
+      "accuracy": 0.913,
+      "secondary_name": "is_safety_hazard",
+      "secondary_accuracy": 0.9333,
+      "wall_time_s": 178.47,
+      "errors": [
+        {
+          "template": "ac",
+          "expected": "hvac",
+          "got": "unknown",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "cleaning",
+          "expected": "janitorial",
+          "got": "unknown",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "elevator/escalator",
+          "expected": "elevator",
+          "got": "unknown",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "emergency exit sign burnt out, <bldg> <n> floor east stairwell.",
+          "expected": "fire_safety",
+          "got": "fire_safety",
+          "hazard": "true vs False"
+        },
+        {
+          "template": "emergency lighting test failed in stairwell a, <bldg>.",
+          "expected": "fire_safety|electrical",
+          "got": "fire_safety",
+          "hazard": "true vs False"
+        },
+        {
+          "template": "emergency lighting test failed in stairwell b, <bldg>.",
+          "expected": "fire_safety|electrical",
+          "got": "fire_safety",
+          "hazard": "true vs False"
+        },
+        {
+          "template": "heating/cooling",
+          "expected": "hvac",
+          "got": "unknown",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "it support",
+          "expected": "it_network",
+          "got": "unknown",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "need more outlets in conf room <n>",
+          "expected": "electrical",
+          "got": "general_maintenance",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "toilet in <n> floor men's restroom is overflowing. urgent.",
+          "expected": "plumbing",
+          "got": "janitorial",
+          "hazard": "- vs True"
+        },
+        {
+          "template": "water issue",
+          "expected": "plumbing",
+          "got": "unknown",
+          "hazard": "- vs False"
+        }
+      ],
+      "macro_f1": 0.882,
+      "per_category": {
+        "electrical": {
+          "precision": 1.0,
+          "recall": 0.875,
+          "f1": 0.933,
+          "support": 8
+        },
+        "elevator": {
+          "precision": 1.0,
+          "recall": 0.875,
+          "f1": 0.933,
+          "support": 8
+        },
+        "fire_safety": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 13
+        },
+        "general_maintenance": {
+          "precision": 0.9,
+          "recall": 1.0,
+          "f1": 0.947,
+          "support": 9
+        },
+        "hvac": {
+          "precision": 1.0,
+          "recall": 0.833,
+          "f1": 0.909,
+          "support": 12
+        },
+        "it_network": {
+          "precision": 1.0,
+          "recall": 0.889,
+          "f1": 0.941,
+          "support": 9
+        },
+        "janitorial": {
+          "precision": 0.889,
+          "recall": 0.889,
+          "f1": 0.889,
+          "support": 9
+        },
+        "pest_control": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 6
+        },
+        "plumbing": {
+          "precision": 1.0,
+          "recall": 0.818,
+          "f1": 0.9,
+          "support": 11
+        },
+        "security_access": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 6
+        },
+        "unknown": {
+          "precision": 0.143,
+          "recall": 1.0,
+          "f1": 0.25,
+          "support": 1
+        }
+      }
+    },
+    {
+      "task": "holdout_descriptions",
+      "items": 60,
+      "accuracy": 0.9,
+      "secondary_name": "is_safety_hazard",
+      "secondary_accuracy": 0.907,
+      "wall_time_s": 139.93,
+      "errors": [
+        {
+          "template": "someone keeps wedging the fire door open with a chair",
+          "expected": "fire_safety|security_access",
+          "got": "general_maintenance",
+          "hazard": "true vs True"
+        },
+        {
+          "template": "chiller tripped overnight and the server hall is at 31c",
+          "expected": "hvac",
+          "got": "electrical",
+          "hazard": "- vs True"
+        },
+        {
+          "template": "car park barrier arm stuck up, anyone can drive in",
+          "expected": "security_access",
+          "got": "security_access",
+          "hazard": "false vs True"
+        },
+        {
+          "template": "escalator handrail moving slower than the steps",
+          "expected": "elevator",
+          "got": "elevator",
+          "hazard": "true vs False"
+        },
+        {
+          "template": "glass from a broken bottle all over the main stairs",
+          "expected": "janitorial",
+          "got": "general_maintenance",
+          "hazard": "true vs True"
+        },
+        {
+          "template": "fire panel showing a fault on zone 12",
+          "expected": "fire_safety",
+          "got": "fire_safety",
+          "hazard": "true vs False"
+        },
+        {
+          "template": "server room humidity alarm at 80 percent",
+          "expected": "hvac",
+          "got": "unknown",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "ceiling fan in reception wobbling badly",
+          "expected": "general_maintenance|electrical|hvac",
+          "got": "general_maintenance",
+          "hazard": "true vs False"
+        },
+        {
+          "template": "vomit in the 2nd floor lift lobby",
+          "expected": "janitorial",
+          "got": "unknown",
+          "hazard": "- vs True"
+        },
+        {
+          "template": "evacuation chair missing from the stair landing",
+          "expected": "fire_safety",
+          "got": "unknown",
+          "hazard": "true vs True"
+        }
+      ],
+      "macro_f1": 0.9237,
+      "per_category": {
+        "electrical": {
+          "precision": 0.857,
+          "recall": 1.0,
+          "f1": 0.923,
+          "support": 6
+        },
+        "elevator": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 3
+        },
+        "fire_safety": {
+          "precision": 1.0,
+          "recall": 0.667,
+          "f1": 0.8,
+          "support": 6
+        },
+        "general_maintenance": {
+          "precision": 0.8,
+          "recall": 1.0,
+          "f1": 0.889,
+          "support": 8
+        },
+        "hvac": {
+          "precision": 1.0,
+          "recall": 0.6,
+          "f1": 0.75,
+          "support": 5
+        },
+        "it_network": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 7
+        },
+        "janitorial": {
+          "precision": 1.0,
+          "recall": 0.778,
+          "f1": 0.875,
+          "support": 9
+        },
+        "pest_control": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "plumbing": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 6
+        },
+        "security_access": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        }
+      }
+    }
+  ],
+  "llm_calls": 26,
+  "format_compliance": 1.0,
+  "latency_ms_p50": 17497.0,
+  "latency_ms_p95": 24038,
+  "input_tokens": 31162,
+  "output_tokens": 10769,
+  "prompt_versions": {
+    "classify_labels": "classify_labels/v4",
+    "classify_templates": "classify_templates/v4"
+  },
+  "served_models": {
+    "gemma3:4b": 26
+  },
+  "cost_usd": 0.0
+}

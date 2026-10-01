@@ -1,0 +1,563 @@
+{
+  "strategy": "rules",
+  "started_at": "2026-10-01T23:57:01+00:00",
+  "tasks": [
+    {
+      "task": "category_labels",
+      "items": 98,
+      "accuracy": 0.9898,
+      "secondary_name": "label_kind",
+      "secondary_accuracy": 1.0,
+      "wall_time_s": 0.0,
+      "errors": [
+        {
+          "label": "toilet in 7 floor men's restroom is overflowing. urgent.",
+          "expected": "description_text/plumbing",
+          "got": "description_text/janitorial"
+        }
+      ],
+      "macro_f1": 0.9913,
+      "per_category": {
+        "electrical": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 8
+        },
+        "elevator": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 11
+        },
+        "fire_safety": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 8
+        },
+        "general_maintenance": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4
+        },
+        "hvac": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 14
+        },
+        "it_network": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 11
+        },
+        "janitorial": {
+          "precision": 0.9,
+          "recall": 1.0,
+          "f1": 0.947,
+          "support": 9
+        },
+        "pest_control": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "plumbing": {
+          "precision": 1.0,
+          "recall": 0.917,
+          "f1": 0.957,
+          "support": 12
+        },
+        "security_access": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 7
+        },
+        "unknown": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 9
+        }
+      }
+    },
+    {
+      "task": "description_templates",
+      "items": 92,
+      "accuracy": 0.9565,
+      "secondary_name": "is_safety_hazard",
+      "secondary_accuracy": 0.9778,
+      "wall_time_s": 0.0,
+      "errors": [
+        {
+          "template": "cockroach sighting in <bldg> restroom. third report this month.",
+          "expected": "pest_control",
+          "got": "janitorial",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "drain clogged in janitor closet, <n> floor.",
+          "expected": "plumbing",
+          "got": "janitorial",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "mice spotted in <bldg> kitchen area. droppings found in cabinets.",
+          "expected": "pest_control",
+          "got": "janitorial",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "toilet in <n> floor men's restroom is overflowing. urgent.",
+          "expected": "plumbing",
+          "got": "janitorial",
+          "hazard": "- vs True"
+        },
+        {
+          "template": "trash overflowing in kitchen area <bldg>",
+          "expected": "janitorial",
+          "got": "janitorial",
+          "hazard": "false vs True"
+        }
+      ],
+      "macro_f1": 0.957,
+      "per_category": {
+        "electrical": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 13
+        },
+        "elevator": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 8
+        },
+        "fire_safety": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 8
+        },
+        "general_maintenance": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 8
+        },
+        "hvac": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 11
+        },
+        "it_network": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 9
+        },
+        "janitorial": {
+          "precision": 0.692,
+          "recall": 1.0,
+          "f1": 0.818,
+          "support": 9
+        },
+        "pest_control": {
+          "precision": 1.0,
+          "recall": 0.667,
+          "f1": 0.8,
+          "support": 6
+        },
+        "plumbing": {
+          "precision": 1.0,
+          "recall": 0.833,
+          "f1": 0.909,
+          "support": 12
+        },
+        "security_access": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 7
+        },
+        "unknown": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        }
+      }
+    },
+    {
+      "task": "holdout_descriptions",
+      "items": 60,
+      "accuracy": 0.3167,
+      "secondary_name": "is_safety_hazard",
+      "secondary_accuracy": 0.6744,
+      "wall_time_s": 0.0,
+      "errors": [
+        {
+          "template": "strong smell of gas near the boiler room on level 2",
+          "expected": "plumbing|hvac|fire_safety",
+          "got": "unknown",
+          "hazard": "true vs False"
+        },
+        {
+          "template": "roof is leaking into the boardroom every time it rains",
+          "expected": "plumbing|general_maintenance",
+          "got": "it_network",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "black mould growing behind the fridge in the staff kitchen",
+          "expected": "janitorial|general_maintenance|pest_control",
+          "got": "unknown",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "rats seen near the loading bay bins",
+          "expected": "pest_control",
+          "got": "unknown",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "boardroom projector won't pick up laptops over hdmi",
+          "expected": "it_network",
+          "got": "unknown",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "chiller tripped overnight and the server hall is at 31c",
+          "expected": "hvac",
+          "got": "unknown",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "backup generator failed its weekly load test",
+          "expected": "electrical",
+          "got": "unknown",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "car park barrier arm stuck up, anyone can drive in",
+          "expected": "security_access",
+          "got": "unknown",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "cctv monitor in the guard hut is blank",
+          "expected": "security_access",
+          "got": "unknown",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "person trapped in lift 3 between 5 and 6, alarm pressed",
+          "expected": "elevator",
+          "got": "elevator",
+          "hazard": "true vs False"
+        },
+        {
+          "template": "escalator handrail moving slower than the steps",
+          "expected": "elevator",
+          "got": "elevator",
+          "hazard": "true vs False"
+        },
+        {
+          "template": "vending machine area sticky and smells of old milk",
+          "expected": "janitorial",
+          "got": "unknown",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "glass from a broken bottle all over the main stairs",
+          "expected": "janitorial",
+          "got": "unknown",
+          "hazard": "true vs False"
+        },
+        {
+          "template": "pigeons nesting in the atrium skylight",
+          "expected": "pest_control",
+          "got": "unknown",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "teams calls keep dropping in the east wing",
+          "expected": "it_network",
+          "got": "unknown",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "exposed wires hanging from the ceiling in corridor 7",
+          "expected": "electrical",
+          "got": "general_maintenance",
+          "hazard": "true vs False"
+        },
+        {
+          "template": "emergency stop button on the dock leveller is cracked",
+          "expected": "general_maintenance|electrical|security_access|fire_safety",
+          "got": "unknown",
+          "hazard": "true vs False"
+        },
+        {
+          "template": "office is freezing, aircon blasting all day",
+          "expected": "hvac",
+          "got": "unknown",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "blinds in reception are broken and won't close",
+          "expected": "general_maintenance",
+          "got": "unknown",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "loose paving slab outside the main entrance",
+          "expected": "general_maintenance",
+          "got": "unknown",
+          "hazard": "true vs False"
+        },
+        {
+          "template": "key fob not opening the bike store",
+          "expected": "security_access",
+          "got": "unknown",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "urinal running continuously in the gents on 2",
+          "expected": "plumbing",
+          "got": "unknown",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "desk lamp sockets dead in the quiet zone",
+          "expected": "electrical",
+          "got": "unknown",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "wasps getting in through the canteen windows",
+          "expected": "pest_control",
+          "got": "general_maintenance",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "hand dryer in the ground floor ladies sparks when switched on",
+          "expected": "electrical",
+          "got": "unknown",
+          "hazard": "true vs False"
+        },
+        {
+          "template": "server room humidity alarm at 80 percent",
+          "expected": "hvac",
+          "got": "fire_safety",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "fridge in the 5th floor kitchen is warm and the milk has gone off",
+          "expected": "general_maintenance|electrical|janitorial",
+          "got": "unknown",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "lift 2 doors closing on people's bags",
+          "expected": "elevator",
+          "got": "elevator",
+          "hazard": "true vs False"
+        },
+        {
+          "template": "silverfish in the archive room boxes",
+          "expected": "pest_control",
+          "got": "unknown",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "bins in the car park have not been emptied for a week",
+          "expected": "janitorial",
+          "got": "unknown",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "meeting room screen keeps saying no signal",
+          "expected": "it_network",
+          "got": "unknown",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "sprinkler system pressure gauge reading zero",
+          "expected": "fire_safety",
+          "got": "fire_safety",
+          "hazard": "true vs False"
+        },
+        {
+          "template": "cold water tap in the gym showers only runs hot",
+          "expected": "plumbing",
+          "got": "hvac",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "ceiling fan in reception wobbling badly",
+          "expected": "general_maintenance|electrical|hvac",
+          "got": "general_maintenance",
+          "hazard": "true vs False"
+        },
+        {
+          "template": "wi-fi access point blinking red on level 3",
+          "expected": "it_network",
+          "got": "security_access",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "graffiti on the side wall of the bike shed",
+          "expected": "janitorial|general_maintenance",
+          "got": "unknown",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "cctv camera in the stairwell pointing at the ceiling",
+          "expected": "security_access",
+          "got": "general_maintenance",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "slugs all over the ground floor corridor after the rain",
+          "expected": "pest_control|janitorial",
+          "got": "unknown",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "carbon monoxide detector chirping in the plant room",
+          "expected": "fire_safety",
+          "got": "unknown",
+          "hazard": "true vs False"
+        },
+        {
+          "template": "conference phone in the boardroom has no dial tone",
+          "expected": "it_network",
+          "got": "unknown",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "vomit in the 2nd floor lift lobby",
+          "expected": "janitorial",
+          "got": "elevator",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "window blind cord hanging loose in the creche",
+          "expected": "general_maintenance",
+          "got": "general_maintenance",
+          "hazard": "true vs False"
+        },
+        {
+          "template": "intruder alarm panel says tamper fault",
+          "expected": "security_access",
+          "got": "fire_safety",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "evacuation chair missing from the stair landing",
+          "expected": "fire_safety",
+          "got": "unknown",
+          "hazard": "true vs False"
+        },
+        {
+          "template": "gutters overflowing onto the entrance steps",
+          "expected": "general_maintenance|plumbing",
+          "got": "unknown",
+          "hazard": "- vs True"
+        },
+        {
+          "template": "mice droppings behind the vending machines",
+          "expected": "pest_control",
+          "got": "janitorial",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "ups in the comms cupboard beeping on battery",
+          "expected": "electrical|it_network",
+          "got": "unknown",
+          "hazard": "- vs False"
+        }
+      ],
+      "macro_f1": 0.4115,
+      "per_category": {
+        "electrical": {
+          "precision": 1.0,
+          "recall": 0.167,
+          "f1": 0.286,
+          "support": 6
+        },
+        "elevator": {
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.857,
+          "support": 3
+        },
+        "fire_safety": {
+          "precision": 0.667,
+          "recall": 0.667,
+          "f1": 0.667,
+          "support": 6
+        },
+        "general_maintenance": {
+          "precision": 0.4,
+          "recall": 0.286,
+          "f1": 0.333,
+          "support": 7
+        },
+        "hvac": {
+          "precision": 0.667,
+          "recall": 0.4,
+          "f1": 0.5,
+          "support": 5
+        },
+        "it_network": {
+          "precision": 0.667,
+          "recall": 0.286,
+          "f1": 0.4,
+          "support": 7
+        },
+        "janitorial": {
+          "precision": 0.5,
+          "recall": 0.143,
+          "f1": 0.222,
+          "support": 7
+        },
+        "pest_control": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 6
+        },
+        "plumbing": {
+          "precision": 1.0,
+          "recall": 0.429,
+          "f1": 0.6,
+          "support": 7
+        },
+        "security_access": {
+          "precision": 0.5,
+          "recall": 0.167,
+          "f1": 0.25,
+          "support": 6
+        }
+      }
+    }
+  ],
+  "llm_calls": 0,
+  "format_compliance": null,
+  "latency_ms_p50": null,
+  "latency_ms_p95": null,
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "prompt_versions": null,
+  "served_models": null,
+  "cost_usd": null
+}

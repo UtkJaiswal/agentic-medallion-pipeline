@@ -1,0 +1,270 @@
+{
+  "strategy": "ollama/gemma3:4b",
+  "started_at": "2026-10-01T12:16:34+00:00",
+  "tasks": [
+    {
+      "task": "category_labels",
+      "items": 98,
+      "accuracy": 0.898,
+      "secondary_name": "label_kind",
+      "secondary_accuracy": 0.8163,
+      "wall_time_s": 159.25,
+      "errors": [
+        {
+          "label": "cold",
+          "expected": "category_label|description_text/hvac",
+          "got": "generic_label/unknown"
+        },
+        {
+          "label": "connectivity",
+          "expected": "category_label/it_network",
+          "got": "generic_label/unknown"
+        },
+        {
+          "label": "elec",
+          "expected": "category_label/electrical",
+          "got": "generic_label/unknown"
+        },
+        {
+          "label": "elevator buttons for floor 1 not responding. hq floor 1.",
+          "expected": "description_text/elevator",
+          "got": "category_label/elevator"
+        },
+        {
+          "label": "elevator making grinding noise. annex east main elevator.",
+          "expected": "description_text/elevator",
+          "got": "category_label/elevator"
+        },
+        {
+          "label": "elevator making grinding noise. annex west main elevator.",
+          "expected": "description_text/elevator",
+          "got": "category_label/elevator"
+        },
+        {
+          "label": "elevator out of order again parking garage",
+          "expected": "description_text/elevator",
+          "got": "category_label/elevator"
+        },
+        {
+          "label": "furniture request \u2014 need 3 additional chairs for room 778.",
+          "expected": "description_text/general_maintenance",
+          "got": "generic_label/unknown"
+        },
+        {
+          "label": "general maintenance",
+          "expected": "category_label/general_maintenance",
+          "got": "generic_label/unknown"
+        },
+        {
+          "label": "heating cooling",
+          "expected": "category_label/hvac",
+          "got": "category_label/plumbing"
+        },
+        {
+          "label": "heating/cooling",
+          "expected": "category_label/hvac",
+          "got": "category_label/plumbing"
+        },
+        {
+          "label": "plumbing issue",
+          "expected": "category_label/plumbing",
+          "got": "description_text/plumbing"
+        },
+        {
+          "label": "power issue",
+          "expected": "category_label/electrical",
+          "got": "description_text/electrical"
+        },
+        {
+          "label": "trash overflowing in kitchen area annex west",
+          "expected": "description_text/janitorial",
+          "got": "generic_label/janitorial"
+        },
+        {
+          "label": "trash overflowing in kitchen area cafeteria block",
+          "expected": "description_text/janitorial",
+          "got": "generic_label/janitorial"
+        },
+        {
+          "label": "trash overflowing in kitchen area hq floor 1",
+          "expected": "description_text/janitorial",
+          "got": "generic_label/janitorial"
+        },
+        {
+          "label": "unit c-050 cycling on and off every few minutes. coils might",
+          "expected": "description_text/hvac",
+          "got": "description_text/electrical"
+        },
+        {
+          "label": "unit h-008 cycling on and off every few minutes. coils might",
+          "expected": "description_text/hvac",
+          "got": "description_text/electrical"
+        },
+        {
+          "label": "water issue",
+          "expected": "category_label/plumbing",
+          "got": "description_text/plumbing"
+        },
+        {
+          "label": "water/plumbing",
+          "expected": "category_label/plumbing",
+          "got": "description_text/plumbing"
+        },
+        {
+          "label": "wifi",
+          "expected": "category_label/it_network",
+          "got": "description_text/it_network"
+        },
+        {
+          "label": "window cracked hq floor 2 6 floor",
+          "expected": "description_text/general_maintenance",
+          "got": "description_text/electrical"
+        },
+        {
+          "label": "unknown",
+          "expected": "junk/unknown",
+          "got": "generic_label/unknown"
+        }
+      ]
+    },
+    {
+      "task": "description_templates",
+      "items": 92,
+      "accuracy": 0.8804,
+      "secondary_name": "is_safety_hazard",
+      "secondary_accuracy": 1.0,
+      "wall_time_s": 220.72,
+      "errors": [
+        {
+          "template": "ac",
+          "expected": "hvac",
+          "got": "unknown",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "cleaning",
+          "expected": "janitorial",
+          "got": "unknown",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "cold",
+          "expected": "hvac",
+          "got": "unknown",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "elevator/escalator",
+          "expected": "elevator",
+          "got": "unknown",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "fire safety",
+          "expected": "fire_safety",
+          "got": "unknown",
+          "hazard": "- vs True"
+        },
+        {
+          "template": "fire/safety",
+          "expected": "fire_safety",
+          "got": "unknown",
+          "hazard": "- vs True"
+        },
+        {
+          "template": "heating/cooling",
+          "expected": "hvac",
+          "got": "unknown",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "it support",
+          "expected": "it_network",
+          "got": "unknown",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "need more outlets in conf room <n>",
+          "expected": "electrical",
+          "got": "general_maintenance",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "vertical transport",
+          "expected": "elevator",
+          "got": "unknown",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "water issue",
+          "expected": "plumbing",
+          "got": "unknown",
+          "hazard": "- vs False"
+        }
+      ]
+    },
+    {
+      "task": "holdout_descriptions",
+      "items": 30,
+      "accuracy": 0.8667,
+      "secondary_name": "is_safety_hazard",
+      "secondary_accuracy": 0.875,
+      "wall_time_s": 82.28,
+      "errors": [
+        {
+          "template": "someone keeps wedging the fire door open with a chair",
+          "expected": "fire_safety|security_access",
+          "got": "general_maintenance",
+          "hazard": "true vs True"
+        },
+        {
+          "template": "chiller tripped overnight and the server hall is at 31c",
+          "expected": "hvac",
+          "got": "electrical",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "backup generator failed its weekly load test",
+          "expected": "electrical",
+          "got": "general_maintenance",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "car park barrier arm stuck up, anyone can drive in",
+          "expected": "security_access",
+          "got": "security_access",
+          "hazard": "false vs True"
+        },
+        {
+          "template": "escalator handrail moving slower than the steps",
+          "expected": "elevator",
+          "got": "elevator",
+          "hazard": "true vs False"
+        },
+        {
+          "template": "glass from a broken bottle all over the main stairs",
+          "expected": "janitorial",
+          "got": "general_maintenance",
+          "hazard": "true vs True"
+        },
+        {
+          "template": "fire panel showing a fault on zone 12",
+          "expected": "fire_safety",
+          "got": "fire_safety",
+          "hazard": "true vs False"
+        }
+      ]
+    }
+  ],
+  "llm_calls": 23,
+  "format_compliance": 1.0,
+  "latency_ms_p50": 20745,
+  "latency_ms_p95": 27426,
+  "input_tokens": 25528,
+  "output_tokens": 9235,
+  "prompt_versions": {
+    "classify_labels": "classify_labels/v3",
+    "classify_templates": "classify_templates/v3"
+  },
+  "cost_usd": 0.0
+}

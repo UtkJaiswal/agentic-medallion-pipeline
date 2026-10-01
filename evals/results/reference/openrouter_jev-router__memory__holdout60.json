@@ -1,0 +1,61 @@
+{
+  "strategy": "openrouter/typesafe/jev-router +memory",
+  "started_at": "2026-10-01T13:03:57+00:00",
+  "tasks": [
+    {
+      "task": "category_labels",
+      "items": 98,
+      "accuracy": 1.0,
+      "secondary_name": "label_kind",
+      "secondary_accuracy": 1.0,
+      "wall_time_s": 14.39,
+      "errors": []
+    },
+    {
+      "task": "description_templates",
+      "items": 92,
+      "accuracy": 1.0,
+      "secondary_name": "is_safety_hazard",
+      "secondary_accuracy": 1.0,
+      "wall_time_s": 24.89,
+      "errors": []
+    },
+    {
+      "task": "holdout_descriptions",
+      "items": 60,
+      "accuracy": 1.0,
+      "secondary_name": "is_safety_hazard",
+      "secondary_accuracy": 0.9535,
+      "wall_time_s": 15.89,
+      "errors": [
+        {
+          "template": "rats seen near the loading bay bins",
+          "expected": "pest_control",
+          "got": "pest_control",
+          "hazard": "false vs True"
+        },
+        {
+          "template": "escalator handrail moving slower than the steps",
+          "expected": "elevator",
+          "got": "elevator",
+          "hazard": "true vs False"
+        }
+      ]
+    }
+  ],
+  "llm_calls": 26,
+  "format_compliance": 1.0,
+  "latency_ms_p50": 6307.5,
+  "latency_ms_p95": 14011,
+  "input_tokens": 36245,
+  "output_tokens": 37878,
+  "prompt_versions": {
+    "classify_labels": "classify_labels/v4",
+    "classify_templates": "classify_templates/v4"
+  },
+  "served_models": {
+    "deepseek/deepseek-v4.1-flash": 23,
+    "google/gemini-3.8-flash": 3
+  },
+  "cost_usd": 0.0611
+}

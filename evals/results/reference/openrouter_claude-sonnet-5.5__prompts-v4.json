@@ -1,0 +1,60 @@
+{
+  "strategy": "openrouter/anthropic/claude-sonnet-5.5",
+  "started_at": "2026-10-01T12:57:07+00:00",
+  "tasks": [
+    {
+      "task": "category_labels",
+      "items": 98,
+      "accuracy": 1.0,
+      "secondary_name": "label_kind",
+      "secondary_accuracy": 0.9898,
+      "wall_time_s": 11.65,
+      "errors": [
+        {
+          "label": "unknown",
+          "expected": "junk/unknown",
+          "got": "generic_label/unknown"
+        }
+      ]
+    },
+    {
+      "task": "description_templates",
+      "items": 92,
+      "accuracy": 1.0,
+      "secondary_name": "is_safety_hazard",
+      "secondary_accuracy": 1.0,
+      "wall_time_s": 13.2,
+      "errors": []
+    },
+    {
+      "task": "holdout_descriptions",
+      "items": 30,
+      "accuracy": 0.9667,
+      "secondary_name": "is_safety_hazard",
+      "secondary_accuracy": 1.0,
+      "wall_time_s": 4.61,
+      "errors": [
+        {
+          "template": "strong smell of gas near the boiler room on level 2",
+          "expected": "plumbing|hvac|fire_safety",
+          "got": "general_maintenance",
+          "hazard": "true vs True"
+        }
+      ]
+    }
+  ],
+  "llm_calls": 23,
+  "format_compliance": 1.0,
+  "latency_ms_p50": 4273,
+  "latency_ms_p95": 5388,
+  "input_tokens": 51547,
+  "output_tokens": 10337,
+  "prompt_versions": {
+    "classify_labels": "classify_labels/v4",
+    "classify_templates": "classify_templates/v4"
+  },
+  "served_models": {
+    "anthropic/claude-sonnet-5.5": 23
+  },
+  "cost_usd": 0.2065
+}

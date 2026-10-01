@@ -1,0 +1,51 @@
+{
+ "experiment": "loop engineering: propose -> verify -> repair (max 2 rounds); first pass vs final from the same run",
+ "database": "throw-away copy (medallion_experiment)",
+ "runs": [
+  {
+   "model": "anthropic/claude-sonnet-5.5",
+   "items": 15,
+   "failed_first_pass": 0,
+   "repaired": 0,
+   "failed_final": 0
+  },
+  {
+   "model": "anthropic/claude-haiku-4.5",
+   "items": 15,
+   "failed_first_pass": 1,
+   "repaired": 1,
+   "failed_final": 0
+  },
+  {
+   "model": "google/gemini-3.1-flash-lite",
+   "items": 8,
+   "failed_first_pass": 1,
+   "repaired": 1,
+   "failed_final": 0,
+   "note": "a second failure in the first run was a bug in the harness ('%' in a LIKE pattern), fixed and re-run"
+  },
+  {
+   "model": "ollama/gemma3:4b",
+   "items": 15,
+   "failed_first_pass": 13,
+   "repaired": 0,
+   "failed_final": 13,
+   "note": "renames ids in repairs, repairs passing items, repeats the same invalid expression"
+  },
+  {
+   "model": "openrouter/typesafe/jev-router",
+   "items": 14,
+   "failed_first_pass": 2,
+   "repaired": 1,
+   "failed_final": 1,
+   "cost_usd": 0.111,
+   "served_models": {
+    "dq_rules": "deepseek/deepseek-v4.1-flash",
+    "dq_rules_repair": "google/gemini-3.8-flash",
+    "gold_design": "deepseek/deepseek-v4.1-flash"
+   },
+   "groundedness": 0.82,
+   "note": "11 DQ rules + 3 gold marts; the unrepaired rule (window function inside FILTER) was rejected by the guardrail"
+  }
+ ]
+}

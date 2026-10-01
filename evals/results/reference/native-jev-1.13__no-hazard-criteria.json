@@ -1,0 +1,372 @@
+{
+  "strategy": "openrouter-decisions:typesafe/jev-1.13",
+  "started_at": "2026-10-02T01:33:47+00:00",
+  "tasks": [
+    {
+      "task": "category_labels",
+      "items": 98,
+      "accuracy": 0.9796,
+      "secondary_name": "label_kind",
+      "secondary_accuracy": 1.0,
+      "wall_time_s": 14.04,
+      "errors": [
+        {
+          "label": "bugs in office remote site beta",
+          "expected": "description_text/pest_control",
+          "got": "description_text/unknown"
+        },
+        {
+          "label": "general",
+          "expected": "generic_label/unknown",
+          "got": "generic_label/general_maintenance"
+        }
+      ],
+      "macro_f1": 0.9697,
+      "per_category": {
+        "electrical": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 8
+        },
+        "elevator": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 11
+        },
+        "fire_safety": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 8
+        },
+        "general_maintenance": {
+          "precision": 0.8,
+          "recall": 1.0,
+          "f1": 0.889,
+          "support": 4
+        },
+        "hvac": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 14
+        },
+        "it_network": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 11
+        },
+        "janitorial": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 9
+        },
+        "pest_control": {
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1": 0.889,
+          "support": 5
+        },
+        "plumbing": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 12
+        },
+        "security_access": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 7
+        },
+        "unknown": {
+          "precision": 0.889,
+          "recall": 0.889,
+          "f1": 0.889,
+          "support": 9
+        }
+      }
+    },
+    {
+      "task": "description_templates",
+      "items": 92,
+      "accuracy": 0.9891,
+      "secondary_name": "is_safety_hazard",
+      "secondary_accuracy": 0.8,
+      "wall_time_s": 18.29,
+      "errors": [
+        {
+          "template": "a/c leaking water onto the carpet near cubicle <n>. <bldg>.",
+          "expected": "hvac|plumbing",
+          "got": "hvac",
+          "hazard": "false vs True"
+        },
+        {
+          "template": "bugs in office <bldg>",
+          "expected": "pest_control",
+          "got": "unknown",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "door <n> won't lock. handle mechanism seems broken.",
+          "expected": "security_access|general_maintenance",
+          "got": "security_access",
+          "hazard": "false vs True"
+        },
+        {
+          "template": "door handle broken on room <n>, <bldg>.",
+          "expected": "general_maintenance|security_access",
+          "got": "general_maintenance",
+          "hazard": "false vs True"
+        },
+        {
+          "template": "drain clogged in janitor closet, <n> floor.",
+          "expected": "plumbing",
+          "got": "plumbing",
+          "hazard": "false vs True"
+        },
+        {
+          "template": "heating system making loud banging noises in <bldg>, <n> floor. starte",
+          "expected": "hvac",
+          "got": "hvac",
+          "hazard": "false vs True"
+        },
+        {
+          "template": "hvac broken again in <bldg>. its really hot",
+          "expected": "hvac",
+          "got": "hvac",
+          "hazard": "false vs True"
+        },
+        {
+          "template": "restrooms on <n> floor haven't been serviced today.",
+          "expected": "janitorial",
+          "got": "janitorial",
+          "hazard": "false vs True"
+        },
+        {
+          "template": "security camera <asset> offline since yesterday. covers parking lot se",
+          "expected": "security_access",
+          "got": "security_access",
+          "hazard": "false vs True"
+        },
+        {
+          "template": "trash overflowing in kitchen area <bldg>",
+          "expected": "janitorial",
+          "got": "janitorial",
+          "hazard": "false vs True"
+        }
+      ],
+      "macro_f1": 0.9615,
+      "per_category": {
+        "electrical": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 8
+        },
+        "elevator": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 8
+        },
+        "fire_safety": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 13
+        },
+        "general_maintenance": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 8
+        },
+        "hvac": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 12
+        },
+        "it_network": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 9
+        },
+        "janitorial": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 9
+        },
+        "pest_control": {
+          "precision": 1.0,
+          "recall": 0.833,
+          "f1": 0.909,
+          "support": 6
+        },
+        "plumbing": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 11
+        },
+        "security_access": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 7
+        },
+        "unknown": {
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.667,
+          "support": 1
+        }
+      }
+    },
+    {
+      "task": "holdout_descriptions",
+      "items": 60,
+      "accuracy": 0.9833,
+      "secondary_name": "is_safety_hazard",
+      "secondary_accuracy": 0.7907,
+      "wall_time_s": 12.11,
+      "errors": [
+        {
+          "template": "rats seen near the loading bay bins",
+          "expected": "pest_control",
+          "got": "pest_control",
+          "hazard": "false vs True"
+        },
+        {
+          "template": "car park barrier arm stuck up, anyone can drive in",
+          "expected": "security_access",
+          "got": "security_access",
+          "hazard": "false vs True"
+        },
+        {
+          "template": "cctv monitor in the guard hut is blank",
+          "expected": "security_access",
+          "got": "security_access",
+          "hazard": "false vs True"
+        },
+        {
+          "template": "vending machine area sticky and smells of old milk",
+          "expected": "janitorial",
+          "got": "janitorial",
+          "hazard": "false vs True"
+        },
+        {
+          "template": "pigeons nesting in the atrium skylight",
+          "expected": "pest_control",
+          "got": "pest_control",
+          "hazard": "false vs True"
+        },
+        {
+          "template": "fridge in the 5th floor kitchen is warm and the milk has gone off",
+          "expected": "general_maintenance|electrical|janitorial",
+          "got": "hvac",
+          "hazard": "false vs True"
+        },
+        {
+          "template": "bins in the car park have not been emptied for a week",
+          "expected": "janitorial",
+          "got": "janitorial",
+          "hazard": "false vs True"
+        },
+        {
+          "template": "sprinkler system pressure gauge reading zero",
+          "expected": "fire_safety",
+          "got": "fire_safety",
+          "hazard": "true vs False"
+        },
+        {
+          "template": "boiler showing fault code e119, no heating",
+          "expected": "hvac|plumbing",
+          "got": "hvac",
+          "hazard": "false vs True"
+        }
+      ],
+      "macro_f1": 0.9882,
+      "per_category": {
+        "electrical": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 6
+        },
+        "elevator": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 3
+        },
+        "fire_safety": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "general_maintenance": {
+          "precision": 1.0,
+          "recall": 0.889,
+          "f1": 0.941,
+          "support": 9
+        },
+        "hvac": {
+          "precision": 0.889,
+          "recall": 1.0,
+          "f1": 0.941,
+          "support": 8
+        },
+        "it_network": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 7
+        },
+        "janitorial": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 6
+        },
+        "pest_control": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 6
+        },
+        "plumbing": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        },
+        "security_access": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5
+        }
+      }
+    }
+  ],
+  "llm_calls": 250,
+  "format_compliance": 1.0,
+  "latency_ms_p50": 543.0,
+  "latency_ms_p95": 1630,
+  "input_tokens": 189782,
+  "output_tokens": 43021,
+  "cost_usd": 0.008,
+  "prompt_versions": null,
+  "served_models": {
+    "typesafe/jev-1.13-20260917": 250
+  }
+}

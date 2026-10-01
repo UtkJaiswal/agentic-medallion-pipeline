@@ -1,0 +1,803 @@
+{
+  "strategy": "openrouter/typesafe/jev-router",
+  "started_at": "2026-10-01T12:56:31+00:00",
+  "tasks": [
+    {
+      "task": "category_labels",
+      "items": 98,
+      "accuracy": 0.7143,
+      "secondary_name": "label_kind",
+      "secondary_accuracy": 0.7143,
+      "wall_time_s": 11.08,
+      "errors": [
+        {
+          "label": "a/c",
+          "expected": "category_label/hvac",
+          "got": "missing"
+        },
+        {
+          "label": "ac",
+          "expected": "category_label/hvac",
+          "got": "missing"
+        },
+        {
+          "label": "access control",
+          "expected": "category_label/security_access",
+          "got": "missing"
+        },
+        {
+          "label": "air conditioning",
+          "expected": "category_label/hvac",
+          "got": "missing"
+        },
+        {
+          "label": "badge/access",
+          "expected": "category_label/security_access",
+          "got": "missing"
+        },
+        {
+          "label": "bird droppings on parking garage entrance canopy. looks unpr",
+          "expected": "description_text/janitorial|pest_control",
+          "got": "missing"
+        },
+        {
+          "label": "breaker keeps tripping in server room 696. critical \u2014 affect",
+          "expected": "description_text/electrical",
+          "got": "missing"
+        },
+        {
+          "label": "bugs in office remote site beta",
+          "expected": "description_text/pest_control",
+          "got": "missing"
+        },
+        {
+          "label": "cleaning",
+          "expected": "category_label/janitorial",
+          "got": "missing"
+        },
+        {
+          "label": "climate control",
+          "expected": "category_label/hvac",
+          "got": "missing"
+        },
+        {
+          "label": "housekeeping",
+          "expected": "category_label/janitorial",
+          "got": "missing"
+        },
+        {
+          "label": "hvac",
+          "expected": "category_label/hvac",
+          "got": "missing"
+        },
+        {
+          "label": "hvac system",
+          "expected": "category_label/hvac",
+          "got": "missing"
+        },
+        {
+          "label": "it",
+          "expected": "category_label/it_network",
+          "got": "missing"
+        },
+        {
+          "label": "it support",
+          "expected": "category_label/it_network",
+          "got": "missing"
+        },
+        {
+          "label": "it/network",
+          "expected": "category_label/it_network",
+          "got": "missing"
+        },
+        {
+          "label": "janitorial",
+          "expected": "category_label/janitorial",
+          "got": "missing"
+        },
+        {
+          "label": "lift",
+          "expected": "category_label/elevator",
+          "got": "missing"
+        },
+        {
+          "label": "maintenance",
+          "expected": "category_label/general_maintenance",
+          "got": "missing"
+        },
+        {
+          "label": "misc",
+          "expected": "generic_label/unknown",
+          "got": "missing"
+        },
+        {
+          "label": "wifi down on 4 floor, building 7. multiple users affected.",
+          "expected": "description_text/it_network",
+          "got": "missing"
+        },
+        {
+          "label": "window cracked hq floor 2 6 floor",
+          "expected": "description_text/general_maintenance",
+          "got": "missing"
+        },
+        {
+          "label": "unknown",
+          "expected": "junk/unknown",
+          "got": "missing"
+        },
+        {
+          "label": "null",
+          "expected": "junk/unknown",
+          "got": "missing"
+        },
+        {
+          "label": "test",
+          "expected": "junk/unknown",
+          "got": "missing"
+        },
+        {
+          "label": "asdf",
+          "expected": "junk/unknown",
+          "got": "missing"
+        },
+        {
+          "label": "delete me",
+          "expected": "junk/unknown",
+          "got": "missing"
+        },
+        {
+          "label": "???",
+          "expected": "junk/unknown",
+          "got": "missing"
+        }
+      ]
+    },
+    {
+      "task": "description_templates",
+      "items": 92,
+      "accuracy": 0.1087,
+      "secondary_name": "is_safety_hazard",
+      "secondary_accuracy": 0.0667,
+      "wall_time_s": 17.51,
+      "errors": [
+        {
+          "template": "a/c leaking water onto the carpet near cubicle <n>. <bldg>.",
+          "expected": "hvac|plumbing",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "ac",
+          "expected": "hvac",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "alarm going off <bldg> no apparent reason",
+          "expected": "fire_safety|security_access",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "ant infestation in <bldg>, <n> floor break room. getting worse.",
+          "expected": "pest_control",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "badge reader at <bldg> main entrance not working. staff can't get in.",
+          "expected": "security_access",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "bird droppings on <bldg> entrance canopy. looks unprofessional.",
+          "expected": "janitorial|pest_control",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "breaker keeps tripping in server room <n>. critical \u2014 affects producti",
+          "expected": "electrical",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "bugs in office <bldg>",
+          "expected": "pest_control",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "carpet coming up at seam, trip hazard, <bldg> <n> floor.",
+          "expected": "general_maintenance",
+          "got": "missing",
+          "hazard": "true vs ?"
+        },
+        {
+          "template": "carpet stain in executive suite, <bldg>. need professional cleaning.",
+          "expected": "janitorial",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "ceiling tile falling in <bldg> hallway, <n> floor. hazard.",
+          "expected": "general_maintenance",
+          "got": "missing",
+          "hazard": "true vs ?"
+        },
+        {
+          "template": "cleaning",
+          "expected": "janitorial",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "climate control",
+          "expected": "hvac",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "cockroach sighting in <bldg> restroom. third report this month.",
+          "expected": "pest_control",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "cold",
+          "expected": "hvac",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "conference room <n> needs deep cleaning before client visit tomorrow.",
+          "expected": "janitorial",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "connectivity",
+          "expected": "it_network",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "door <n> won't lock. handle mechanism seems broken.",
+          "expected": "security_access|general_maintenance",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "door handle broken on room <n>, <bldg>.",
+          "expected": "general_maintenance|security_access",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "drain clogged in janitor closet, <n> floor.",
+          "expected": "plumbing",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "elec",
+          "expected": "electrical",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "electrical",
+          "expected": "electrical",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "elevator <asset> stuck between floors <n> and <n>. no one inside (conf",
+          "expected": "elevator",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "elevator buttons for floor <n> not responding. <bldg>.",
+          "expected": "elevator",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "elevator making grinding noise. <bldg> main elevator.",
+          "expected": "elevator",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "elevator out of order again <bldg>",
+          "expected": "elevator",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "elevator/escalator",
+          "expected": "elevator",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "emergency exit sign burnt out, <bldg> <n> floor east stairwell.",
+          "expected": "fire_safety",
+          "got": "missing",
+          "hazard": "true vs ?"
+        },
+        {
+          "template": "emergency lighting test failed in stairwell a, <bldg>.",
+          "expected": "fire_safety|electrical",
+          "got": "missing",
+          "hazard": "true vs ?"
+        },
+        {
+          "template": "emergency lighting test failed in stairwell b, <bldg>.",
+          "expected": "fire_safety|electrical",
+          "got": "missing",
+          "hazard": "true vs ?"
+        },
+        {
+          "template": "emergency lighting test failed in stairwell c, <bldg>.",
+          "expected": "fire_safety|electrical",
+          "got": "missing",
+          "hazard": "true vs ?"
+        },
+        {
+          "template": "emergency lighting test failed in stairwell north, <bldg>.",
+          "expected": "fire_safety|electrical",
+          "got": "missing",
+          "hazard": "true vs ?"
+        },
+        {
+          "template": "emergency lighting test failed in stairwell south, <bldg>.",
+          "expected": "fire_safety|electrical",
+          "got": "missing",
+          "hazard": "true vs ?"
+        },
+        {
+          "template": "faucet in <bldg> kitchen won't turn off completely. constant drip.",
+          "expected": "plumbing",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "fire alarm triggered in <bldg>, <n> floor. no visible fire. possible s",
+          "expected": "fire_safety",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "fire extinguisher expired in hallway near room <n>, <bldg>.",
+          "expected": "fire_safety",
+          "got": "missing",
+          "hazard": "true vs ?"
+        },
+        {
+          "template": "fire safety",
+          "expected": "fire_safety",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "fire/safety",
+          "expected": "fire_safety",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "furniture request \u2014 need <n> additional chairs for room <n>.",
+          "expected": "general_maintenance",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "general maintenance",
+          "expected": "general_maintenance",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "half the lights on <n> floor are out. <bldg>.",
+          "expected": "electrical",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "heating system making loud banging noises in <bldg>, <n> floor. starte",
+          "expected": "hvac",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "heating/cooling",
+          "expected": "hvac",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "hot water not working in <bldg>. multiple sinks affected.",
+          "expected": "plumbing",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "housekeeping",
+          "expected": "janitorial",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "hvac",
+          "expected": "hvac",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "hvac broken again in <bldg>. its really hot",
+          "expected": "hvac",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "internet extremely slow in <bldg>. speed test showing <n> mbps down.",
+          "expected": "it_network",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "it support",
+          "expected": "it_network",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "janitorial",
+          "expected": "janitorial",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "lift",
+          "expected": "elevator",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "lights flickering in <bldg>, <n> floor hallway. has been happening for",
+          "expected": "electrical",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "mice spotted in <bldg> kitchen area. droppings found in cabinets.",
+          "expected": "pest_control",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "need access card programmed for new employee starting monday. <bldg> <",
+          "expected": "security_access",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "need more outlets in conf room <n>",
+          "expected": "electrical",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "network",
+          "expected": "it_network",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "network jack at desk <n> not active. new hire needs connectivity.",
+          "expected": "it_network",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "other",
+          "expected": "unknown",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "paint peeling in <bldg> lobby. looks bad for visitors.",
+          "expected": "general_maintenance",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "parking lot pothole getting larger. near spot <n>.",
+          "expected": "general_maintenance",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "pest",
+          "expected": "pest_control",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "pipe burst",
+          "expected": "plumbing",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "please check the hvac \u2014 multiple complaints from staff on <n>th floor ",
+          "expected": "hvac",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "plumbing",
+          "expected": "plumbing",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "plumbing issue",
+          "expected": "plumbing",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "power outlet not working at desk <n>. tried multiple devices.",
+          "expected": "electrical",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "printer on <n> floor not connecting to network. model hp <asset>.",
+          "expected": "it_network",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "restrooms on <n> floor haven't been serviced today.",
+          "expected": "janitorial",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "security",
+          "expected": "security_access",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "security camera <asset> offline since yesterday. covers parking lot se",
+          "expected": "security_access",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "security systems",
+          "expected": "security_access",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "smoke detector beeping <bldg>",
+          "expected": "fire_safety",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "sparking outlet in <bldg> \u2014 do not use, taped off",
+          "expected": "electrical",
+          "got": "missing",
+          "hazard": "true vs ?"
+        },
+        {
+          "template": "spill in <bldg> lobby. slip hazard.",
+          "expected": "janitorial",
+          "got": "missing",
+          "hazard": "true vs ?"
+        },
+        {
+          "template": "sprinkler head damaged in <bldg> storage room <n>. needs replacement b",
+          "expected": "fire_safety",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "tailgating incident reported at <bldg> loading dock. review camera foo",
+          "expected": "security_access",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "temperature control issue in conference room <n>. the thermostat reads",
+          "expected": "hvac",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "the ac unit on <n> floor is not working. room temp is around <n>f. ple",
+          "expected": "hvac",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "toilet in <n> floor men's restroom is overflowing. urgent.",
+          "expected": "plumbing",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "trash overflowing in kitchen area <bldg>",
+          "expected": "janitorial",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "wifi password not working",
+          "expected": "it_network",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "window cracked <bldg> <n> floor",
+          "expected": "general_maintenance",
+          "got": "missing",
+          "hazard": "- vs ?"
+        }
+      ]
+    },
+    {
+      "task": "holdout_descriptions",
+      "items": 30,
+      "accuracy": 0.3333,
+      "secondary_name": "is_safety_hazard",
+      "secondary_accuracy": 0.375,
+      "wall_time_s": 7.37,
+      "errors": [
+        {
+          "template": "strong smell of gas near the boiler room on level 2",
+          "expected": "plumbing|hvac|fire_safety",
+          "got": "missing",
+          "hazard": "true vs ?"
+        },
+        {
+          "template": "roof is leaking into the boardroom every time it rains",
+          "expected": "plumbing|general_maintenance",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "black mould growing behind the fridge in the staff kitchen",
+          "expected": "janitorial|general_maintenance|pest_control",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "rats seen near the loading bay bins",
+          "expected": "pest_control",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "someone keeps wedging the fire door open with a chair",
+          "expected": "fire_safety|security_access",
+          "got": "missing",
+          "hazard": "true vs ?"
+        },
+        {
+          "template": "boardroom projector won't pick up laptops over hdmi",
+          "expected": "it_network",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "chiller tripped overnight and the server hall is at 31c",
+          "expected": "hvac",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "backup generator failed its weekly load test",
+          "expected": "electrical",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "bathroom on 4 is flooding from under the cistern",
+          "expected": "plumbing",
+          "got": "missing",
+          "hazard": "- vs ?"
+        },
+        {
+          "template": "car park barrier arm stuck up, anyone can drive in",
+          "expected": "security_access",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "cctv monitor in the guard hut is blank",
+          "expected": "security_access",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "person trapped in lift 3 between 5 and 6, alarm pressed",
+          "expected": "elevator",
+          "got": "missing",
+          "hazard": "true vs ?"
+        },
+        {
+          "template": "escalator handrail moving slower than the steps",
+          "expected": "elevator",
+          "got": "missing",
+          "hazard": "true vs ?"
+        },
+        {
+          "template": "vending machine area sticky and smells of old milk",
+          "expected": "janitorial",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "glass from a broken bottle all over the main stairs",
+          "expected": "janitorial",
+          "got": "missing",
+          "hazard": "true vs ?"
+        },
+        {
+          "template": "pigeons nesting in the atrium skylight",
+          "expected": "pest_control",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "teams calls keep dropping in the east wing",
+          "expected": "it_network",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "cannot log in to the guest network from meeting room b",
+          "expected": "it_network",
+          "got": "missing",
+          "hazard": "false vs ?"
+        },
+        {
+          "template": "exposed wires hanging from the ceiling in corridor 7",
+          "expected": "electrical",
+          "got": "missing",
+          "hazard": "true vs ?"
+        },
+        {
+          "template": "emergency stop button on the dock leveller is cracked",
+          "expected": "general_maintenance|electrical|security_access|fire_safety",
+          "got": "missing",
+          "hazard": "true vs ?"
+        }
+      ]
+    }
+  ],
+  "llm_calls": 9,
+  "format_compliance": 1.0,
+  "latency_ms_p50": 3718,
+  "latency_ms_p95": 5514,
+  "input_tokens": 10948,
+  "output_tokens": 7481,
+  "prompt_versions": {
+    "classify_labels": "classify_labels/v4",
+    "classify_templates": "classify_templates/v4"
+  },
+  "served_models": {
+    "deepseek/deepseek-v4.1-flash": 7,
+    "google/gemini-3.8-flash": 2
+  },
+  "cost_usd": 0.015
+}

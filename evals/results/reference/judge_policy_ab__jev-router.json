@@ -1,0 +1,90 @@
+{
+  "items": 187,
+  "actually_correct": 146,
+  "threshold": 0.85,
+  "judge_verdicts": 187,
+  "with_human_signal": 69,
+  "policies": [
+    {
+      "policy": "A: agent confidence",
+      "auto_approved": 102,
+      "coverage": 0.5455,
+      "precision": 0.7941,
+      "wrong_auto_approved": 21,
+      "sent_to_review": 85
+    },
+    {
+      "policy": "B: judge only",
+      "auto_approved": 156,
+      "coverage": 0.8342,
+      "precision": 0.9231,
+      "wrong_auto_approved": 12,
+      "sent_to_review": 31
+    },
+    {
+      "policy": "C: trust (human 0.6 / judge 0.3 / agent 0.1)",
+      "auto_approved": 146,
+      "coverage": 0.7807,
+      "precision": 0.9658,
+      "wrong_auto_approved": 5,
+      "sent_to_review": 41
+    },
+    {
+      "policy": "C': trust without human signal",
+      "auto_approved": 150,
+      "coverage": 0.8021,
+      "precision": 0.9333,
+      "wrong_auto_approved": 10,
+      "sent_to_review": 37
+    }
+  ],
+  "review_queue_ranking": {
+    "items": 187,
+    "wrong": 41,
+    "random_baseline_precision": 0.219,
+    "agent confidence": {
+      "@10": {
+        "precision": 0.7,
+        "recall": 0.171
+      },
+      "@25": {
+        "precision": 0.36,
+        "recall": 0.22
+      },
+      "@50": {
+        "precision": 0.3,
+        "recall": 0.366
+      }
+    },
+    "judge": {
+      "@10": {
+        "precision": 1.0,
+        "recall": 0.244
+      },
+      "@25": {
+        "precision": 1.0,
+        "recall": 0.61
+      },
+      "@50": {
+        "precision": 0.62,
+        "recall": 0.756
+      }
+    },
+    "trust (human-weighted)": {
+      "@10": {
+        "precision": 1.0,
+        "recall": 0.244
+      },
+      "@25": {
+        "precision": 0.92,
+        "recall": 0.561
+      },
+      "@50": {
+        "precision": 0.72,
+        "recall": 0.878
+      }
+    }
+  },
+  "judge": "openrouter/typesafe/jev-router",
+  "judge_cost_usd": 0.0852
+}

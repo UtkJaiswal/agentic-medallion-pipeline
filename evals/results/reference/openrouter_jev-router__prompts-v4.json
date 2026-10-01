@@ -1,0 +1,68 @@
+{
+  "strategy": "openrouter/typesafe/jev-router",
+  "started_at": "2026-10-01T12:58:02+00:00",
+  "tasks": [
+    {
+      "task": "category_labels",
+      "items": 98,
+      "accuracy": 1.0,
+      "secondary_name": "label_kind",
+      "secondary_accuracy": 0.9898,
+      "wall_time_s": 12.93,
+      "errors": [
+        {
+          "label": "unknown",
+          "expected": "junk/unknown",
+          "got": "generic_label/unknown"
+        }
+      ]
+    },
+    {
+      "task": "description_templates",
+      "items": 92,
+      "accuracy": 1.0,
+      "secondary_name": "is_safety_hazard",
+      "secondary_accuracy": 0.9778,
+      "wall_time_s": 27.24,
+      "errors": [
+        {
+          "template": "a/c leaking water onto the carpet near cubicle <n>. <bldg>.",
+          "expected": "hvac|plumbing",
+          "got": "hvac",
+          "hazard": "false vs True"
+        }
+      ]
+    },
+    {
+      "task": "holdout_descriptions",
+      "items": 30,
+      "accuracy": 1.0,
+      "secondary_name": "is_safety_hazard",
+      "secondary_accuracy": 0.9583,
+      "wall_time_s": 12.31,
+      "errors": [
+        {
+          "template": "rats seen near the loading bay bins",
+          "expected": "pest_control",
+          "got": "pest_control",
+          "hazard": "false vs True"
+        }
+      ]
+    }
+  ],
+  "llm_calls": 23,
+  "format_compliance": 1.0,
+  "latency_ms_p50": 5727,
+  "latency_ms_p95": 12303,
+  "input_tokens": 27633,
+  "output_tokens": 34926,
+  "prompt_versions": {
+    "classify_labels": "classify_labels/v4",
+    "classify_templates": "classify_templates/v4"
+  },
+  "served_models": {
+    "google/gemini-3.8-flash": 3,
+    "deepseek/deepseek-v4.1-flash": 20
+  },
+  "cost_usd": 0.049
+}

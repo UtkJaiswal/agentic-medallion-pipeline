@@ -1,0 +1,266 @@
+{
+  "strategy": "ollama/gemma3:4b +memory",
+  "started_at": "2026-10-01T13:13:28+00:00",
+  "tasks": [
+    {
+      "task": "category_labels",
+      "items": 98,
+      "accuracy": 0.949,
+      "secondary_name": "label_kind",
+      "secondary_accuracy": 0.7653,
+      "wall_time_s": 177.11,
+      "errors": [
+        {
+          "label": "breaker keeps tripping in server room 696. critical \u2014 affect",
+          "expected": "description_text/electrical",
+          "got": "category_label/electrical"
+        },
+        {
+          "label": "bugs in office remote site beta",
+          "expected": "description_text/pest_control",
+          "got": "category_label/pest_control"
+        },
+        {
+          "label": "elevator buttons for floor 1 not responding. hq floor 1.",
+          "expected": "description_text/elevator",
+          "got": "category_label/elevator"
+        },
+        {
+          "label": "elevator making grinding noise. annex east main elevator.",
+          "expected": "description_text/elevator",
+          "got": "missing"
+        },
+        {
+          "label": "elevator out of order again parking garage",
+          "expected": "description_text/elevator",
+          "got": "category_label/elevator"
+        },
+        {
+          "label": "fire/safety",
+          "expected": "category_label/fire_safety",
+          "got": "description_text/fire_safety"
+        },
+        {
+          "label": "general maintenance",
+          "expected": "category_label/general_maintenance",
+          "got": "generic_label/unknown"
+        },
+        {
+          "label": "need access card programmed for new employee starting monday",
+          "expected": "description_text/security_access",
+          "got": "category_label/security_access"
+        },
+        {
+          "label": "need more outlets in conf room 387",
+          "expected": "description_text/electrical",
+          "got": "category_label/electrical"
+        },
+        {
+          "label": "need more outlets in conf room 861",
+          "expected": "description_text/electrical",
+          "got": "category_label/electrical"
+        },
+        {
+          "label": "network jack at desk 301 not active. new hire needs connecti",
+          "expected": "description_text/it_network",
+          "got": "category_label/it_network"
+        },
+        {
+          "label": "restrooms on 2 floor haven't been serviced today.",
+          "expected": "description_text/janitorial",
+          "got": "category_label/janitorial"
+        },
+        {
+          "label": "restrooms on 7 floor haven't been serviced today.",
+          "expected": "description_text/janitorial",
+          "got": "category_label/janitorial"
+        },
+        {
+          "label": "smoke detector beeping tower a",
+          "expected": "description_text/fire_safety",
+          "got": "category_label/fire_safety"
+        },
+        {
+          "label": "temperature control issue in conference room 379. the thermo",
+          "expected": "description_text/hvac",
+          "got": "category_label/hvac"
+        },
+        {
+          "label": "temperature control issue in conference room 618. the thermo",
+          "expected": "description_text/hvac",
+          "got": "category_label/hvac"
+        },
+        {
+          "label": "the ac unit on 6 floor is not working. room temp is around 5",
+          "expected": "description_text/hvac",
+          "got": "category_label/hvac"
+        },
+        {
+          "label": "toilet in 7 floor men's restroom is overflowing. urgent.",
+          "expected": "description_text/plumbing",
+          "got": "description_text/janitorial"
+        },
+        {
+          "label": "trash overflowing in kitchen area annex west",
+          "expected": "description_text/janitorial",
+          "got": "category_label/janitorial"
+        },
+        {
+          "label": "trash overflowing in kitchen area cafeteria block",
+          "expected": "description_text/janitorial",
+          "got": "category_label/janitorial"
+        },
+        {
+          "label": "trash overflowing in kitchen area hq floor 1",
+          "expected": "description_text/janitorial",
+          "got": "category_label/janitorial"
+        },
+        {
+          "label": "unit c-050 cycling on and off every few minutes. coils might",
+          "expected": "description_text/hvac",
+          "got": "category_label/electrical"
+        },
+        {
+          "label": "unit h-008 cycling on and off every few minutes. coils might",
+          "expected": "description_text/hvac",
+          "got": "category_label/electrical"
+        },
+        {
+          "label": "wheelchair-accessible elevator in annex east has expired ins",
+          "expected": "description_text/elevator",
+          "got": "category_label/elevator"
+        }
+      ]
+    },
+    {
+      "task": "description_templates",
+      "items": 92,
+      "accuracy": 0.9457,
+      "secondary_name": "is_safety_hazard",
+      "secondary_accuracy": 1.0,
+      "wall_time_s": 245.54,
+      "errors": [
+        {
+          "template": "ac",
+          "expected": "hvac",
+          "got": "electrical",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "cleaning",
+          "expected": "janitorial",
+          "got": "unknown",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "elevator making grinding noise. <bldg> main elevator.",
+          "expected": "elevator",
+          "got": "electrical",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "sprinkler head damaged in <bldg> storage room <n>. needs replacement b",
+          "expected": "fire_safety",
+          "got": "plumbing",
+          "hazard": "- vs True"
+        },
+        {
+          "template": "water issue",
+          "expected": "plumbing",
+          "got": "unknown",
+          "hazard": "- vs False"
+        }
+      ]
+    },
+    {
+      "task": "holdout_descriptions",
+      "items": 60,
+      "accuracy": 0.8667,
+      "secondary_name": "is_safety_hazard",
+      "secondary_accuracy": 0.907,
+      "wall_time_s": 158.97,
+      "errors": [
+        {
+          "template": "strong smell of gas near the boiler room on level 2",
+          "expected": "plumbing|hvac|fire_safety",
+          "got": "electrical",
+          "hazard": "true vs True"
+        },
+        {
+          "template": "chiller tripped overnight and the server hall is at 31c",
+          "expected": "hvac",
+          "got": "electrical",
+          "hazard": "- vs True"
+        },
+        {
+          "template": "car park barrier arm stuck up, anyone can drive in",
+          "expected": "security_access",
+          "got": "security_access",
+          "hazard": "false vs True"
+        },
+        {
+          "template": "escalator handrail moving slower than the steps",
+          "expected": "elevator",
+          "got": "general_maintenance",
+          "hazard": "true vs False"
+        },
+        {
+          "template": "glass from a broken bottle all over the main stairs",
+          "expected": "janitorial",
+          "got": "general_maintenance",
+          "hazard": "true vs True"
+        },
+        {
+          "template": "server room humidity alarm at 80 percent",
+          "expected": "hvac",
+          "got": "unknown",
+          "hazard": "- vs False"
+        },
+        {
+          "template": "fridge in the 5th floor kitchen is warm and the milk has gone off",
+          "expected": "general_maintenance|electrical|janitorial",
+          "got": "plumbing",
+          "hazard": "false vs False"
+        },
+        {
+          "template": "ceiling fan in reception wobbling badly",
+          "expected": "general_maintenance|electrical|hvac",
+          "got": "general_maintenance",
+          "hazard": "true vs False"
+        },
+        {
+          "template": "vomit in the 2nd floor lift lobby",
+          "expected": "janitorial",
+          "got": "unknown",
+          "hazard": "- vs True"
+        },
+        {
+          "template": "intruder alarm panel says tamper fault",
+          "expected": "security_access",
+          "got": "security_access",
+          "hazard": "false vs True"
+        },
+        {
+          "template": "evacuation chair missing from the stair landing",
+          "expected": "fire_safety",
+          "got": "unknown",
+          "hazard": "true vs True"
+        }
+      ]
+    }
+  ],
+  "llm_calls": 26,
+  "format_compliance": 1.0,
+  "latency_ms_p50": 25577.5,
+  "latency_ms_p95": 27483,
+  "input_tokens": 36336,
+  "output_tokens": 10832,
+  "prompt_versions": {
+    "classify_labels": "classify_labels/v4",
+    "classify_templates": "classify_templates/v4"
+  },
+  "served_models": {
+    "gemma3:4b": 26
+  },
+  "cost_usd": 0.0
+}
