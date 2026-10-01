@@ -1,0 +1,19 @@
+# Domain ontology for facility tickets (SKOS-style), owned by the business.
+#
+# related: category pairs where one real-world problem legitimately belongs to both. Measured need:
+#   without these, 450 tickets were flagged "label conflicts with description", and every one of them
+#   was one of the overlaps below (emergency lighting, alarms, door locks), not a mistake.
+related:
+  - [fire_safety, electrical]          # emergency lighting, exit signs, fire panels
+  - [fire_safety, security_access]     # alarms, fire doors
+  - [security_access, general_maintenance]  # door locks, handles
+  - [hvac, plumbing]                   # AC condensate leaks
+  - [janitorial, pest_control]         # droppings, bird mess
+  - [janitorial, plumbing]             # overflowing toilets, drains
+
+# Which parties are qualified for which categories. In-house teams are generalists (not listed => any).
+# ASSUMPTION derived from vendor names; to be confirmed by the facilities team before it drives alerts.
+qualified_for:
+  ABC Mechanical: [hvac, plumbing, elevator, general_maintenance]
+  CityWide Electric: [electrical, fire_safety]
+  PestPro Services: [pest_control]
