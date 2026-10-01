@@ -1,0 +1,93 @@
+label,label_kind,category,confidence,source
+a/c,category_label,hvac,0.950,llm:ollama/gemma3:4b
+ac,category_label,hvac,0.950,llm:ollama/gemma3:4b
+access control,category_label,security_access,0.950,llm:ollama/gemma3:4b
+air conditioning,category_label,hvac,0.950,llm:ollama/gemma3:4b
+badge/access,category_label,security_access,0.950,llm:ollama/gemma3:4b
+bird droppings on parking garage entrance canopy. looks unpr,description_text,janitorial,0.850,llm:ollama/gemma3:4b
+breaker keeps tripping in server room 696. critical — affect,description_text,electrical,0.950,human
+bugs in office remote site beta,description_text,pest_control,0.900,human
+cleaning,category_label,janitorial,0.950,llm:ollama/gemma3:4b
+climate control,category_label,hvac,0.900,llm:ollama/gemma3:4b
+cold,category_label,hvac,0.600,llm:ollama/gemma3:4b
+connectivity,category_label,it_network,0.800,llm:ollama/gemma3:4b
+elec,category_label,electrical,0.900,llm:ollama/gemma3:4b
+electrical,category_label,electrical,0.900,llm:ollama/gemma3:4b
+electrical systems,category_label,electrical,0.900,llm:ollama/gemma3:4b
+elevator,category_label,elevator,0.950,llm:ollama/gemma3:4b
+elevator a-001 stuck between floors 4 and 12. no one inside,description_text,elevator,0.900,llm:ollama/gemma3:4b
+elevator buttons for floor 1 not responding. hq floor 1.,description_text,elevator,0.900,human
+elevator e-048 stuck between floors 2 and 9. no one inside (,description_text,elevator,0.900,llm:ollama/gemma3:4b
+elevator making grinding noise. annex east main elevator.,description_text,elevator,0.900,human
+elevator making grinding noise. annex west main elevator.,description_text,elevator,0.950,human
+elevator out of order again parking garage,description_text,elevator,0.950,human
+elevator/escalator,category_label,elevator,0.950,llm:ollama/gemma3:4b
+"emergency exit sign burnt out, hq floor 2 6 floor east stair",description_text,fire_safety,0.950,human
+"emergency exit sign burnt out, main office 8 floor east stai",description_text,fire_safety,0.950,human
+exterminator,category_label,pest_control,0.900,llm:ollama/gemma3:4b
+faucet in remote site alpha kitchen won't turn off completel,description_text,plumbing,0.850,llm:ollama/gemma3:4b
+fire alarm,category_label,fire_safety,0.950,llm:ollama/gemma3:4b
+"fire extinguisher expired in hallway near room 470, tower b.",description_text,fire_safety,0.950,human
+fire safety,category_label,fire_safety,0.950,llm:ollama/gemma3:4b
+fire/safety,category_label,fire_safety,0.900,llm:ollama/gemma3:4b
+furniture request — need 3 additional chairs for room 778.,description_text,general_maintenance,0.500,llm:ollama/gemma3:4b+human
+general,generic_label,unknown,0.500,llm:ollama/gemma3:4b
+general maintenance,category_label,general_maintenance,0.500,llm:ollama/gemma3:4b+human
+heating cooling,category_label,hvac,0.800,llm:ollama/gemma3:4b
+heating/cooling,category_label,hvac,0.800,llm:ollama/gemma3:4b
+hot water not working in annex east. multiple sinks affected,description_text,plumbing,0.900,llm:ollama/gemma3:4b
+hot water not working in building 7. multiple sinks affected,description_text,plumbing,0.900,llm:ollama/gemma3:4b
+hot water not working in cafeteria block. multiple sinks aff,description_text,plumbing,0.900,llm:ollama/gemma3:4b
+hot water not working in tower b. multiple sinks affected.,description_text,plumbing,0.900,llm:ollama/gemma3:4b
+housekeeping,category_label,janitorial,0.950,llm:ollama/gemma3:4b
+hvac,category_label,hvac,0.900,llm:ollama/gemma3:4b
+hvac system,category_label,hvac,0.900,llm:ollama/gemma3:4b
+it,category_label,it_network,0.800,llm:ollama/gemma3:4b
+it support,category_label,it_network,0.800,llm:ollama/gemma3:4b
+it/network,category_label,it_network,0.800,llm:ollama/gemma3:4b
+janitorial,category_label,janitorial,0.950,llm:ollama/gemma3:4b
+lift,category_label,elevator,0.900,llm:ollama/gemma3:4b
+maintenance,category_label,general_maintenance,0.700,llm:ollama/gemma3:4b
+misc,generic_label,unknown,0.950,llm:ollama/gemma3:4b
+need access card programmed for new employee starting monday,description_text,security_access,0.850,human
+need more outlets in conf room 387,description_text,electrical,0.850,human
+need more outlets in conf room 861,description_text,electrical,0.850,human
+network,category_label,it_network,0.850,llm:ollama/gemma3:4b
+network jack at desk 301 not active. new hire needs connecti,description_text,it_network,0.850,human
+other,generic_label,unknown,0.950,llm:ollama/gemma3:4b
+pest,category_label,pest_control,0.900,llm:ollama/gemma3:4b
+pest control,category_label,pest_control,0.900,llm:ollama/gemma3:4b
+pipe burst,description_text,plumbing,0.750,llm:ollama/gemma3:4b
+plumbing,category_label,plumbing,0.900,llm:ollama/gemma3:4b
+plumbing issue,category_label,plumbing,0.900,llm:ollama/gemma3:4b
+power,category_label,electrical,0.900,llm:ollama/gemma3:4b
+power issue,category_label,electrical,0.900,llm:ollama/gemma3:4b
+restrooms on 2 floor haven't been serviced today.,description_text,janitorial,0.800,llm:ollama/gemma3:4b
+restrooms on 7 floor haven't been serviced today.,description_text,janitorial,0.800,llm:ollama/gemma3:4b
+security,category_label,security_access,0.900,llm:ollama/gemma3:4b
+security camera a-040 offline since yesterday. covers parkin,description_text,security_access,0.800,llm:ollama/gemma3:4b
+security camera e-049 offline since yesterday. covers parkin,description_text,security_access,0.800,llm:ollama/gemma3:4b
+security systems,category_label,security_access,0.900,llm:ollama/gemma3:4b
+smoke detector beeping tower a,description_text,fire_safety,0.900,llm:ollama/gemma3:4b
+sprinkler,category_label,fire_safety,0.950,llm:ollama/gemma3:4b
+temperature control issue in conference room 379. the thermo,description_text,hvac,0.750,llm:ollama/gemma3:4b+human
+temperature control issue in conference room 618. the thermo,description_text,hvac,0.750,llm:ollama/gemma3:4b+human
+the ac unit on 6 floor is not working. room temp is around 5,description_text,hvac,0.900,human
+toilet in 7 floor men's restroom is overflowing. urgent.,description_text,plumbing,0.950,human
+trash overflowing in kitchen area annex west,description_text,janitorial,0.900,human
+trash overflowing in kitchen area cafeteria block,description_text,janitorial,0.900,human
+trash overflowing in kitchen area hq floor 1,description_text,janitorial,0.900,human
+unit c-050 cycling on and off every few minutes. coils might,description_text,hvac,0.750,llm:ollama/gemma3:4b+human
+unit h-008 cycling on and off every few minutes. coils might,description_text,hvac,0.750,llm:ollama/gemma3:4b+human
+vertical transport,category_label,elevator,0.950,llm:ollama/gemma3:4b
+vpn issues from hq floor 1 conference room. can't connect to,description_text,it_network,0.750,llm:ollama/gemma3:4b
+vpn issues from remote site alpha conference room. can't con,description_text,it_network,0.750,llm:ollama/gemma3:4b
+vpn issues from warehouse north conference room. can't conne,description_text,it_network,0.750,llm:ollama/gemma3:4b
+"wasp nest forming on hq floor 3 exterior, near entrance.",description_text,pest_control,0.900,llm:ollama/gemma3:4b
+water issue,category_label,plumbing,0.750,llm:ollama/gemma3:4b+human
+"water leak detected in ceiling tiles, building 7 room 805. a",description_text,plumbing,0.950,llm:ollama/gemma3:4b
+water/plumbing,category_label,plumbing,0.750,llm:ollama/gemma3:4b+human
+wheelchair-accessible elevator in annex east has expired ins,description_text,elevator,0.800,llm:ollama/gemma3:4b
+wifi,category_label,it_network,0.750,llm:ollama/gemma3:4b+human
+"wifi down on 4 floor, building 7. multiple users affected.",description_text,it_network,0.950,human
+window cracked hq floor 2 6 floor,description_text,general_maintenance,0.750,llm:ollama/gemma3:4b

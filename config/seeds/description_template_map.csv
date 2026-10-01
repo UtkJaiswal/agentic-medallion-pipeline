@@ -1,0 +1,96 @@
+template,category,issue_type,severity,is_safety_hazard,confidence,source
+a/c leaking water onto the carpet near cubicle <n>. <bldg>.,hvac,ac_leak,medium,false,0.800,llm:ollama/gemma3:4b
+ac,hvac,unspecified,low,false,0.300,llm:ollama/gemma3:4b+human
+alarm going off <bldg> no apparent reason,fire_safety,alarm_unexplained,high,true,0.700,llm:ollama/gemma3:4b
+"ant infestation in <bldg>, <n> floor break room. getting worse.",pest_control,ant_infestation,medium,false,0.900,llm:ollama/gemma3:4b
+badge reader at <bldg> main entrance not working. staff can't get in.,security_access,badge_reader_failure,high,false,0.800,llm:ollama/gemma3:4b
+bird droppings on <bldg> entrance canopy. looks unpr,janitorial,bird_droppings,low,false,0.600,llm:ollama/gemma3:4b
+bird droppings on <bldg> entrance canopy. looks unprofessional.,janitorial,bird_droppings,low,false,0.600,llm:ollama/gemma3:4b
+breaker keeps tripping in server room <n>. critical — affects production systems.,electrical,breaker_tripping,critical,true,0.950,llm:ollama/gemma3:4b
+bugs in office <bldg>,pest_control,bug_infestation,medium,false,0.700,llm:ollama/gemma3:4b
+"carpet coming up at seam, trip hazard, <bldg> <n> floor.",general_maintenance,trip_hazard_carpet,high,true,0.900,llm:ollama/gemma3:4b
+"carpet stain in executive suite, <bldg>. need professional cleaning.",janitorial,carpet_stain,low,false,0.800,llm:ollama/gemma3:4b+human
+"ceiling tile falling in <bldg> hallway, <n> floor. hazard.",general_maintenance,ceiling_tile_fall,medium,true,0.700,llm:ollama/gemma3:4b
+cleaning,janitorial,unspecified,low,false,0.300,llm:ollama/gemma3:4b+human
+climate control,hvac,climate_control_issue,medium,false,0.600,llm:ollama/gemma3:4b
+cockroach sighting in <bldg> restroom. third report this month.,pest_control,pest_infestation,medium,false,0.800,llm:ollama/gemma3:4b+human
+cold,hvac,temperature_issue,low,false,0.500,llm:ollama/gemma3:4b
+conference room <n> needs deep cleaning before client visit tomorrow.,janitorial,deep_cleaning,medium,false,0.700,llm:ollama/gemma3:4b
+connectivity,it_network,connectivity_issue,medium,false,0.600,llm:ollama/gemma3:4b
+door <n> won't lock. handle mechanism seems broken.,general_maintenance,door_lock_failure,medium,false,0.800,llm:ollama/gemma3:4b
+"door handle broken on room <n>, <bldg>.",general_maintenance,door_handle_broken,low,false,0.700,llm:ollama/gemma3:4b
+"drain clogged in janitor closet, <n> floor.",plumbing,drain_clogged,medium,false,0.800,llm:ollama/gemma3:4b+human
+elec,electrical,unspecified,medium,false,0.300,llm:ollama/gemma3:4b+human
+electrical,electrical,electrical_malfunction,medium,false,0.700,llm:ollama/gemma3:4b
+elevator <asset> stuck between floors <n> and <n>. no one inside,elevator,elevator_stuck,critical,true,0.950,llm:ollama/gemma3:4b
+elevator <asset> stuck between floors <n> and <n>. no one inside (,elevator,elevator_stuck,critical,true,0.950,llm:ollama/gemma3:4b
+elevator <asset> stuck between floors <n> and <n>. no one inside (confirmed).,elevator,elevator_stuck,critical,true,0.950,llm:ollama/gemma3:4b
+elevator buttons for floor <n> not responding. <bldg>.,elevator,elevator_button_malfunction,medium,false,0.800,llm:ollama/gemma3:4b
+elevator making grinding noise. <bldg> main elevator.,elevator,elevator_noise,medium,false,0.700,llm:ollama/gemma3:4b
+elevator out of order again <bldg>,elevator,elevator_out_of_order,medium,false,0.700,llm:ollama/gemma3:4b
+elevator/escalator,elevator,unspecified,medium,false,0.300,llm:ollama/gemma3:4b+human
+"emergency exit sign burnt out, <bldg> <n> floor east stairwell.",fire_safety,emergency_exit_sign_burnt_out,high,true,0.950,llm:ollama/gemma3:4b
+"emergency lighting test failed in stairwell a, <bldg>.",fire_safety,emergency_lighting_test_failed,high,true,0.900,llm:ollama/gemma3:4b
+"emergency lighting test failed in stairwell b, <bldg>.",fire_safety,emergency_lighting_test_failed,high,true,0.900,llm:ollama/gemma3:4b
+"emergency lighting test failed in stairwell c, <bldg>.",fire_safety,emergency_lighting_test_failed,high,true,0.900,llm:ollama/gemma3:4b
+"emergency lighting test failed in stairwell north, <bldg>.",fire_safety,emergency_lighting_test_failed,high,true,0.900,llm:ollama/gemma3:4b
+"emergency lighting test failed in stairwell south, <bldg>.",fire_safety,emergency_lighting_test_failed,high,true,0.900,llm:ollama/gemma3:4b
+faucet in <bldg> kitchen won't turn off completel,plumbing,faucet_won_t_turn_off,medium,false,0.800,llm:ollama/gemma3:4b
+faucet in <bldg> kitchen won't turn off completely. constant drip.,plumbing,faucet_won_t_turn_off,medium,false,0.800,llm:ollama/gemma3:4b
+"fire alarm triggered in <bldg>, <n> floor. no visible fire. possible sensor malfunction.",fire_safety,fire_alarm_triggered_malfunction,critical,true,0.950,llm:ollama/gemma3:4b
+"fire extinguisher expired in hallway near room <n>, <bldg>.",fire_safety,fire_extinguisher_expired,medium,true,0.900,human
+fire safety,fire_safety,fire_safety,medium,true,0.700,llm:ollama/gemma3:4b
+furniture request — need <n> additional chairs for room <n>.,general_maintenance,furniture_request,low,false,0.800,llm:ollama/gemma3:4b
+general maintenance,general_maintenance,general_maintenance,medium,false,0.600,llm:ollama/gemma3:4b
+half the lights on <n> floor are out. <bldg>.,electrical,lighting_out,medium,false,0.900,llm:ollama/gemma3:4b
+"heating system making loud banging noises in <bldg>, <n> floor. started yesterday.",hvac,hvac_noise,medium,false,0.800,llm:ollama/gemma3:4b
+heating/cooling,hvac,hvac_broken,medium,false,0.700,llm:ollama/gemma3:4b
+hot water not working in <bldg>. multiple sinks affected.,plumbing,hot_water_failure,medium,false,0.900,llm:ollama/gemma3:4b
+housekeeping,janitorial,housekeeping,low,false,0.700,llm:ollama/gemma3:4b
+hvac,hvac,hvac_broken,medium,false,0.800,llm:ollama/gemma3:4b
+hvac broken again in <bldg>. its really hot,hvac,hvac_broken,high,false,0.900,llm:ollama/gemma3:4b
+internet extremely slow in <bldg>. speed test showing <n> mbps down.,it_network,internet_slow,medium,false,0.800,llm:ollama/gemma3:4b
+it support,it_network,it_support_unspecified,low,false,0.600,llm:ollama/gemma3:4b+human
+janitorial,janitorial,janitorial_cleaning_needed,low,false,0.700,llm:ollama/gemma3:4b
+lift,elevator,elevator_malfunction,medium,false,0.700,llm:ollama/gemma3:4b
+"lights flickering in <bldg>, <n> floor hallway. has been happening for <n> days.",electrical,lighting_flickering,medium,false,0.800,llm:ollama/gemma3:4b+human
+mice spotted in <bldg> kitchen area. droppings found in cabinets.,pest_control,mouse_infestation,medium,false,0.900,llm:ollama/gemma3:4b
+need access card programmed for new employee starting monday. <bldg> <n> floor.,security_access,access_card_programming,low,false,0.700,llm:ollama/gemma3:4b
+need more outlets in conf room <n>,electrical,outlet_installation,low,false,0.600,llm:ollama/gemma3:4b+human
+network,it_network,network_connectivity_issue,medium,false,0.800,llm:ollama/gemma3:4b
+network jack at desk <n> not active. new hire needs connectivity.,it_network,network_jack_failure,medium,false,0.900,llm:ollama/gemma3:4b
+other,unknown,other,low,false,0.500,llm:ollama/gemma3:4b
+paint peeling in <bldg> lobby. looks bad for visitors.,general_maintenance,paint_peeling,low,false,0.800,llm:ollama/gemma3:4b
+parking lot pothole getting larger. near spot <n>.,general_maintenance,parking_lot_damage,medium,true,0.900,llm:ollama/gemma3:4b
+pest,pest_control,pest_infestation,medium,false,0.700,llm:ollama/gemma3:4b
+pipe burst,plumbing,pipe_burst,critical,true,0.950,llm:ollama/gemma3:4b
+please check the hvac — multiple complaints from staff on <n>th floor about humidity.,hvac,humidity_issue,medium,false,0.850,llm:ollama/gemma3:4b
+plumbing,plumbing,plumbing_issue,medium,false,0.600,llm:ollama/gemma3:4b
+power outlet not working at desk <n>. tried multiple devices.,electrical,outlet_failure,medium,false,0.900,llm:ollama/gemma3:4b
+printer on <n> floor not connecting to network. model hp <asset>.,it_network,printer_network_connectivity,medium,false,0.800,llm:ollama/gemma3:4b
+restrooms on <n> floor haven't been serviced today.,janitorial,restroom_not_serviced,medium,false,0.900,llm:ollama/gemma3:4b
+security,security_access,security_incident,medium,false,0.800,llm:ollama/gemma3:4b
+security camera <asset> offline since yesterday. covers parking lot sector <n>.,security_access,security_camera_offline,high,false,0.900,llm:ollama/gemma3:4b
+security systems,security_access,security_systems,medium,false,0.600,llm:ollama/gemma3:4b
+smoke detector beeping <bldg>,fire_safety,smoke_detector_beeping,medium,true,0.950,llm:ollama/gemma3:4b
+"sparking outlet in <bldg> — do not use, taped off",electrical,outlet_sparking,critical,true,0.900,llm:ollama/gemma3:4b
+spill in <bldg> lobby. slip hazard.,janitorial,spill_slip_hazard,high,true,0.900,llm:ollama/gemma3:4b
+sprinkler head damaged in <bldg> storage room <n>. needs replacement before it leaks.,fire_safety,sprinkler_head_damaged,high,false,0.800,llm:ollama/gemma3:4b
+tailgating incident reported at <bldg> loading dock. review camera footage.,security_access,tailgating_incident,medium,false,0.700,llm:ollama/gemma3:4b
+temperature control issue in conference room <n>. the thermostat reads <n> degrees but it feels much colder.,hvac,temperature_control_issue,medium,false,0.800,llm:ollama/gemma3:4b
+the ac unit on <n> floor is not working. room temp is around <n>f. please fix asap.,hvac,ac_unit_not_working,high,false,0.900,llm:ollama/gemma3:4b
+toilet in <n> floor men's restroom is overflowing. urgent.,plumbing,toilet_overflow,high,false,0.950,llm:ollama/gemma3:4b
+trash overflowing in kitchen area <bldg>,janitorial,trash_overflow,medium,false,0.800,llm:ollama/gemma3:4b
+unit <asset> cycling on and off every few minutes. coils might be frozen.,hvac,equipment_malfunction,medium,false,0.850,human
+vertical transport,elevator,elevator_operational_issue,medium,false,0.700,llm:ollama/gemma3:4b
+vpn issues from <bldg> conference room. can't connect to corporate.,it_network,vpn_connectivity_issue,high,false,0.900,llm:ollama/gemma3:4b
+"wasp nest forming on <bldg> exterior, near entrance.",pest_control,pest_infestation,medium,true,0.900,llm:ollama/gemma3:4b
+water everywhere in bathroom <bldg>,plumbing,water_leak,high,false,0.900,llm:ollama/gemma3:4b
+water issue,plumbing,water_issue,medium,false,0.500,llm:ollama/gemma3:4b+human
+"water leak detected in ceiling tiles, <bldg> room <n>. a",plumbing,ceiling_tile_leak,medium,false,0.850,llm:ollama/gemma3:4b
+"water leak detected in ceiling tiles, <bldg> room <n>. appears to be coming from above.",plumbing,ceiling_tile_leak,medium,false,0.850,llm:ollama/gemma3:4b
+water/plumbing,plumbing,water_leak,medium,false,0.800,llm:ollama/gemma3:4b
+wheelchair-accessible elevator in <bldg> has expired inspection certificate (noticed today).,elevator,elevator_expired_inspection,high,true,0.900,llm:ollama/gemma3:4b
+"wifi down on <n> floor, <bldg>. multiple users affected.",it_network,wifi_outage,high,false,0.900,llm:ollama/gemma3:4b
+wifi password not working,it_network,wifi_password_issue,medium,false,0.700,llm:ollama/gemma3:4b
+window cracked <bldg> <n> floor,general_maintenance,window_damage,low,false,0.600,llm:ollama/gemma3:4b

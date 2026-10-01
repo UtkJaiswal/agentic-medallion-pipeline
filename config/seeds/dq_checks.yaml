@@ -1,0 +1,119 @@
+- check_id: building_placeholder_nulls
+  description: 21 distinct values with 6 empty and 19 placeholders out of 10280; names are consistently formatted
+    otherwise. -> Trim whitespace and set empty/placeholder values to NULL; keep the 21 valid names unchanged.
+  rationale: Missing building prevents location-level reporting and routing of vendor work.
+  severity: info
+  violation_predicate: building IS NULL
+  threshold: 0.01
+  source: llm:openrouter/anthropic/claude-sonnet-5.5
+- check_id: category_canonicalise
+  description: 115 raw distinct values collapse to 99 after normalisation; synonyms such as Exterminator/Pest/pest
+    control/Pest Control, Fire Safety/fire safety/Fire/Safety/Sprinkler, Elec/ELECTRICAL; 5 empty, 13 placeholders.
+    -> Trim, lowercase, strip punctuation, and map synonyms and abbreviations to a canonical category list; unmapped
+    or placeholder values become NULL for review.
+  rationale: Fragmented categories split volume and vendor performance across labels and hide where problems concentrate.
+  severity: critical
+  violation_predicate: category = 'unknown'
+  threshold: 0.02
+  source: llm:openrouter/anthropic/claude-sonnet-5.5+human
+- check_id: cost_parse_and_sentinels
+  description: Cost has 2637 empty, 996 placeholders (N/A 494, TBD 484, error 12, NULL 6), 993 '$'-prefixed, 195
+    negatives (-1 x192, -999 x3), 295 zeros; max 14996.24. -> Strip $ and commas, convert to numeric; set placeholders
+    and negative sentinel values to NULL; keep zero but flag it.
+  rationale: Sentinel values like -1/-999 and unparsed '$' strings corrupt vendor spend totals and averages.
+  severity: critical
+  violation_predicate: cost_usd IS NOT NULL AND (cost_usd < 0 OR cost_usd > 100000)
+  threshold: 0.005
+  source: llm:openrouter/anthropic/claude-sonnet-5.5
+- check_id: created_at_parse_mixed_formats
+  description: '8 formats seen (ISO T, ISO space, ''DD/MM/YYYY hh:mm AM'', date only, ''01-Apr-2025 04:45'', dd-mm-yyyy,
+    epoch 1704049383 x501); 7 empty, 23 placeholders incl. ''00/00/0000'' x8. Slash dates: second part >12 in 1863
+    rows and first part never >12, so they are MM/DD/YYYY, with 3105 ambiguous resolved by that evidence. -> Treat
+    placeholders and 00/00/0000 as NULL; parse epoch seconds, ISO, dd-Mon-yyyy and 12-hour formats, reading slash
+    dates as month-first per the profile evidence.'
+  rationale: created_at is the start of resolution time and SLA; mis-parsed day/month or unparsed values corrupt
+    resolution_hours and sla_met and time-series volumes.
+  severity: critical
+  violation_predicate: created_at IS NULL OR created_at > now() OR created_at < timestamp '2015-01-01'
+  threshold: 0.01
+  source: llm:openrouter/anthropic/claude-sonnet-5.5
+- check_id: duplicate_ticket_ids
+  description: 19 duplicate ticket_ids, and 201 rows duplicate another row on every field except id, created_at
+    and submitter (likely re-submitted tickets). -> Keep one row per ticket_id (the earliest created, most complete);
+    flag near-duplicates that match on all content fields but differ in id/created/submitter for review.
+  rationale: Duplicate tickets inflate workload, backlog and vendor cost counts; the same issue being filed twice
+    distorts SLA and volume metrics.
+  severity: warning
+  violation_predicate: is_duplicate_closure IS TRUE AND duplicate_of_ticket_id IS NULL
+  threshold: 0.02
+  source: llm:openrouter/anthropic/claude-sonnet-5.5
+- check_id: priority_normalise
+  description: 22 raw values map to 14 normalised (hi/high, med/Medium, CRITICAL/critical, 'ASAP' 2130 rows by shape,
+    'urgent!!!' x10); 1080 empty and 18 placeholders such as '???' x6. -> Lowercase and strip punctuation, map hi/high/asap/urgent
+    to High or Critical per agreed mapping, med to Medium, low to Low; placeholders to NULL.
+  rationale: Priority drives SLA expectations and escalation; inconsistent labels break priority-level SLA reporting
+    and hide critical tickets.
+  severity: warning
+  violation_predicate: priority IS NULL
+  threshold: 0.12
+  source: llm:openrouter/anthropic/claude-sonnet-5.5+human
+- check_id: resolved_at_parse_and_order
+  description: Same 8 mixed formats as created_at (epoch x231); 4939 empty, 22 placeholders ('???' x16). Slash dates
+    are month-first (second part >12 in 956 rows, first never). -> Treat placeholders as NULL, parse all formats
+    as for created_at; after parsing, null any resolved_at earlier than created_at and flag it.
+  rationale: resolved_at drives resolution_hours and SLA compliance; a mis-parsed value or one earlier than created_at
+    yields negative or huge durations that distort averages.
+  severity: warning
+  violation_predicate: resolved_at IS NOT NULL AND (created_at IS NULL OR resolved_at < created_at)
+  threshold: 0.2
+  source: llm:openrouter/anthropic/claude-sonnet-5.5+human
+- check_id: sla_hours_sentinels
+  description: 2040 empty, 1046 placeholders (N/A 1032, NULL 14), 557 rows with 999 sentinel, 484 zeros, 9 negatives
+    (-1); valid values are 4/8/24/48/72. -> Parse as integer only when it is one of the standard SLA values 4, 8,
+    24, 48, 72; set 0, negative, 999 and placeholders to NULL.
+  rationale: SLA target hours are the denominator for sla_met; 0, -1 and 999 produce false breaches or false compliance.
+  severity: critical
+  violation_predicate: sla_hours IS NOT NULL AND sla_hours NOT IN (4,8,24,48,72)
+  threshold: 0.005
+  source: llm:openrouter/anthropic/claude-sonnet-5.5
+- check_id: sla_met_computability
+  description: Only about 70% of rows have a usable sla_hours (2040 empty, 1046 placeholder, plus 999/0/-1 sentinels),
+    so sla_met cannot be derived for many resolved tickets. -> Compute resolution_hours and sla_met only when created_at,
+    resolved_at and sla_hours are valid; flag resolved tickets where it cannot be computed.
+  rationale: SLA compliance is a headline metric; resolved tickets lacking an SLA or valid timestamps are silently
+    excluded or mis-scored.
+  severity: warning
+  violation_predicate: resolved_at IS NOT NULL AND (sla_hours IS NULL OR resolution_hours IS NULL OR sla_met IS
+    NULL)
+  threshold: 0.35
+  source: llm:openrouter/anthropic/claude-sonnet-5.5
+- check_id: status_resolved_consistency
+  description: 10 distinct raw values; 10 empty, 20 placeholders (NULL 11, unknown 6, ??? 3). Resolved/Closed count
+    3292 while resolved_at is empty in 4939 rows, so status and resolved_at may disagree. -> Trim and title-case
+    valid statuses, set placeholders to NULL, and flag rows where is_open conflicts with presence of resolved_at.
+  rationale: Open backlog and SLA reports depend on status being valid and consistent with resolved_at; unknown
+    statuses hide tickets from the backlog.
+  severity: warning
+  violation_predicate: status IS NULL OR (status IN ('resolved', 'closed') AND resolved_at IS NULL)
+  threshold: 0.03
+  source: llm:openrouter/anthropic/claude-sonnet-5.5+human
+- check_id: submitter_name_variants
+  description: 37 raw distinct names collapse to 34 normalised; variants like 'Jane Doe'/'jane doe', 'J. Smith'/'John
+    Smith', 'E. Brown'/'Emily Brown'; 7 empty. -> Trim, collapse whitespace and title-case names; blank to NULL.
+    Mapping initials to full names needs a reference list.
+  rationale: Name variants split per-submitter ticket counts, hiding repeat submitters and the re-submission duplicates
+    (201 near-duplicates).
+  severity: info
+  violation_predicate: submitted_by IS NULL
+  threshold: 0.01
+  source: llm:openrouter/anthropic/claude-sonnet-5.5
+- check_id: ticket_id_missing_or_invalid
+  description: 8 empty, 14 placeholder (N/A 9, NULL 5) and 4 purely numeric values like '15' out of 10280 rows;
+    valid shape is TKT-9999/TKT-99999. -> Trim and uppercase the id; keep it only if it matches TKT- followed by
+    4-5 digits, otherwise set it to NULL so the row is quarantined.
+  rationale: Without a valid ticket_id rows cannot be joined, de-duplicated or audited, and workload counts and
+    backlog reports become unreliable.
+  severity: critical
+  violation_predicate: ticket_id IS NULL OR ticket_id !~ '^TKT-[0-9]+$'  # human fix: was {4,5}; ids grow
+  threshold: 0.005
+  source: llm:openrouter/anthropic/claude-sonnet-5.5
