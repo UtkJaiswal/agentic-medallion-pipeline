@@ -1,0 +1,55 @@
+# Canonical ticket taxonomy - owned by the business, not by the model.
+# The LLM may only choose from these categories; `keywords` drive the deterministic fallback
+# classifier used when no LLM is configured (and as the eval baseline).
+categories:
+  hvac:
+    description: Heating, cooling, ventilation, humidity, thermostats, AC units.
+    keywords: [hvac, "a/c", ac, air conditioning, heating, cooling, thermostat, temperature, humidity,
+               climate, coils, cold, really hot]
+  electrical:
+    description: Power, outlets, breakers, wiring, lighting fixtures.
+    keywords: [electric, elec, power, outlet, breaker, wiring, lights, lighting, sparking, fuse]
+  plumbing:
+    description: Water supply, leaks, pipes, drains, toilets, faucets, hot water.
+    keywords: [plumb, pipe, leak, faucet, toilet, drain, water, sink, flood]
+  elevator:
+    description: Elevators, lifts, escalators and their inspections.
+    keywords: [elevator, lift, escalator, vertical transport]
+  fire_safety:
+    description: Fire alarms, smoke detectors, sprinklers, extinguishers, exit signs, emergency lighting.
+    keywords: [fire, smoke, sprinkler, extinguisher, exit sign, emergency lighting, alarm]
+  security_access:
+    description: Badges, access control, locks, cameras, security incidents.
+    keywords: [security, badge, access, camera, tailgating, lock, door]
+  it_network:
+    description: Network, WiFi, VPN, internet, printers, network jacks.
+    keywords: [network, wifi, vpn, internet, printer, connectivity, it, jack]
+  pest_control:
+    description: Insects, rodents, birds and other pests.
+    keywords: [pest, exterminator, bugs, cockroach, wasp, ant infestation, mice, rodent]
+  janitorial:
+    description: Cleaning, trash, spills, restroom servicing, stains, droppings clean-up.
+    keywords: [clean, janitor, housekeeping, trash, spill, stain, restroom, serviced, droppings]
+  general_maintenance:
+    description: Building fabric and furniture - doors, windows, ceilings, paint, carpet, parking lot.
+    keywords: [maintenance, paint, window, ceiling, carpet coming up, furniture, chairs, pothole, handle]
+  unknown:
+    description: Not enough information to categorise (junk, empty or non-informative text).
+    keywords: []
+
+# Labels that name no specific category; the description decides instead.
+generic_labels: [other, misc, general]
+
+# Assignee master data: canonical display name and whether the work is done in-house or by a vendor.
+assignees:
+  "joe (in-house)": {name: "Joe (in-house)", type: in_house}
+  "maintenance team": {name: "Maintenance Team", type: in_house}
+  "overnight crew": {name: "Overnight Crew", type: in_house}
+  "abc mechanical": {name: "ABC Mechanical", type: vendor}
+  "citywide electric": {name: "CityWide Electric", type: vendor}
+  "pestpro services": {name: "PestPro Services", type: vendor}
+  "vendor tech": {name: "Vendor Tech", type: vendor}
+
+# Explicit test / junk markers. A row containing one of these in its id, category or description is
+# quarantined, never silently dropped.
+junk_markers: ["delete me", "ignore this row", "duplicate entry please delete", "asdf", "test building"]
